@@ -1,35 +1,35 @@
 <?php
 /**
- * Project: Capsule
+ * Project: Payinone
  *
  * Config::config
  *
  * Create at: 2017-07-23 12:38
  *
- * @author Martian@NorthmeLLC <martian@northme.com>
+ * @author Victor@NorthmeLLC <victor.chen@northme.com>
  */
-$url = $_SERVER['HTTP_HOST'] == 'time.urox.cn' ? 'https://' : 'http://';
 return array(
-    //'配置项'=>'配置值'
-    'AUTOLOAD_NAMESPACE' => array(
-        'Lib'     => APP_PATH.'Lib',
+    'AUTOLOAD_NAMESPACE'      => array(
+        'Lib'                 => APP_PATH.'Lib',
     ),
     //'TMPL_EXCEPTION_FILE' => APP_PATH.'/err.tpl',
     //'SHOW_PAGE_TRACE' =>true,
-    'SHOW_ERROR_MSG'        =>  true,
-    'LOAD_EXT_CONFIG' => 'dbc,route',
-    //'TMPL_PARSE_STRING'  =>array(
-    //    '__STATIC__' => '/assets', // 更改默认的/Public 替换规则
-    //),
-    'TOKEN_ON'      =>    true,
-    'TOKEN_NAME'    =>    '__ASPNETVIEWSTATE__',
-
-    'DEFAULT_MODULE'=> 'SIMPLE',//默认模块
-    'TMPL_FILE_DEPR'=>'_',//简化模板目录层次
-    'TMPL_TEMPLATE_SUFFIX'=>'.tpl',//模板文件后缀
-    'URL_MODEL'=>2,//URL模式
-    'URL_HTML_SUFFIX'=>'html',//允许的伪静态后缀
-    'URL_CASE_INSENSITIVE'=>false,//URL不区分大小写
-    'session_auto_start'=>true,//是否开启session
-    'HTTP_HOST'=>$url.$_SERVER['HTTP_HOST']//域名
+    'SHOW_ERROR_MSG'          => true,
+    'LOAD_EXT_CONFIG'         => 'dbc,route',
+    'TMPL_PARSE_STRING'       => array(
+        '__STATIC__'          => '/assets', // 更改默认的/Public 替换规则
+    ),
+    'LANG_SWITCH_ON'          => true,
+    'TOKEN_ON'                => true,
+    'TOKEN_NAME'              => '__ASPNETVIEWSTATE__',
+    'session_auto_start'      => true,//是否开启session
+    'APP_SUB_DOMAIN_DEPLOY'   => 1, // 开启子域名配置
+    'APP_SUB_DOMAIN_RULES'    => array(
+        'pay-frontend'        => 'Frontend',
+        'pay-backend'         => 'Backend',
+        'pay-api'             => 'Api',
+    ),
+    'LANG_AUTO_DETECT' => true, // 自动侦测语言 开启多语言功能后有效
+    'LANG_LIST'        => 'en-US,zh-CN', // 允许切换的语言列表 用逗号分隔
+    'VAR_LANGUAGE'     => 'l', // 默认语言切换变量
 );

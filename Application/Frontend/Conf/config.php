@@ -4,5 +4,6 @@ return array(
     'URL_MAP_RULES' => array(
         'auth/login' => 'Auth/login',
         'auth/logout' => 'Auth/logout',
+        'app/view' => 'App/view',
     ),
 );

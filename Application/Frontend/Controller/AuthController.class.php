@@ -4,7 +4,7 @@ class AuthController extends InitController {
     public function _initialize(){
         parent::_initialize();
         if (isset($_SESSION['uid']) and ACTION_NAME!='logout' and ACTION_NAME !='register'){
-            redirect('/view');
+            redirect('/app/view');
         }
         $uid = $_SESSION['uid'];
         if ($uid=2 or $uid=1) $this->assign('isadmin',TRUE);
@@ -22,9 +22,9 @@ class AuthController extends InitController {
                     "last_login_time"=>getDateTime(),
                 ))->save();
                 addEvent($_SESSION['uid'],'User:'.$uname.' logon from '.get_client_ip());
-                redirect('/view');
+                redirect('/app/view');
             }else {
-                $this->error('The credentials you have inputed cannot be validated.',"/login",3);
+                $this->error('The credentials you have inputed cannot be validated.',"/auth/login",3);
             }
         }
         $this->meta_title="Login to TC";
@@ -34,7 +34,7 @@ class AuthController extends InitController {
     public function logout(){
         session(null);
         cookie(null);
-        $this->success('Sign out success, redirecting to login...','/login',3);
+        $this->success('Sign out success, redirecting to login...','/auth/login',3);
     }
 
     public function register(){
@@ -56,7 +56,7 @@ class AuthController extends InitController {
                     "reg_time" => getDateTime(),
                 ))->add();
                 session('uid',$uid);
-                $this->success('Registration succeed! Now restricting to the panel...','/view',3);exit;
+                $this->success('Registration succeed! Now restricting to the panel...','/app/view',3);exit;
             }
         }
         $this->display();

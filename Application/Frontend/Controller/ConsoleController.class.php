@@ -8,7 +8,7 @@ class ConsoleController extends InitController{
                 $this->assign('isadmin',1);
             }
         } else {
-            $this->error('Your session has timed out, now redirecting to login...','/login',3);exit;
+            $this->error('Your session has timed out, now redirecting to login...','/auth/login',3);exit;
         }$this->assign('uid',session("uid"));
     }
 
