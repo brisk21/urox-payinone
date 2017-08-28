@@ -15,7 +15,30 @@ class AppController extends InitController{
 
     public function view()
     {
-        $this->meta_title = 'Applications View';
+        $this->assign('SideBar_Selected','SideBar_ViewApp');
+        $this->meta_title = L('SideBar_ViewApp');
         $this->display();
     }
+
+    public function create()
+    {
+        $this->assign('SideBar_Selected','SideBar_CreateApp');
+        $this->meta_title = L('SideBar_CreateApp');
+        $this->display();
+    }
+
+    public function data()
+    {
+        $this->assign('SideBar_Selected','SideBar_AppData');
+        $this->meta_title = L('SideBar_AppData');
+        $this->display();
+    }
+
+    public function order()
+    {
+        $this->assign('SideBar_Selected','SideBar_OrderRetrieval');
+        $this->meta_title = L('SideBar_OrderRetrieval');
+        $this->display();
+    }
+
 }

@@ -1,17 +1,23 @@
 <?php
 return array(
-    'SideBar_Applications' => 'Applications',
-    'NavBar_SelectLanguage' => 'Select Language',
+    //Global language
     'Global_Alipay' => 'Alipay',
     'Global_WxPay' => 'WeChat Pay',
-    'NavBar_PaymentGateways' => 'Payment Gateways',
-    'NavBar_AddPaymentGateway' => 'Add Configuration',
-    'NavBar_ViewPaymentGateway' => 'View All',
-    'NavBar_CreateApp' => 'Create Application',
-    'NavBar_ViewApp' => 'My Applications',
-    'NavBar_AppData' => 'Application Data',
-    'NavBar_OrderRetrieval' => 'Orders Retrieval',
-    'NavBar_Account' => 'My Account',
-    'NavBar_Profile' => 'Profile',
-    'NavBar_LogOut' => 'Sign Out',
+    'Global_LastLoginTime' => 'Last Login',
+    'Global_Help' => 'Help',
+    'Global_Doc' => 'Support Documents',
+
+    //Sidebar language
+    'SideBar_Applications' => 'Applications',
+    'SideBar_SelectLanguage' => 'Select Language',
+    'SideBar_PaymentGateways' => 'Payment Gateways',
+    'SideBar_AddPaymentGateway' => 'Add Configuration',
+    'SideBar_ViewPaymentGateway' => 'View All',
+    'SideBar_CreateApp' => 'Create Application',
+    'SideBar_ViewApp' => 'My Applications',
+    'SideBar_AppData' => 'Application Data',
+    'SideBar_OrderRetrieval' => 'Orders Retrieval',
+    'SideBar_Account' => 'My Account',
+    'SideBar_Profile' => 'Profile',
+    'SideBar_LogOut' => 'Sign Out',
 );

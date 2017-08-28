@@ -27,7 +27,7 @@ class AuthController extends InitController {
                 $this->error('The credentials you have inputed cannot be validated.',"/auth/login",3);
             }
         }
-        $this->meta_title="Login to TC";
+        $this->meta_title=L('Auth_LoginTo').C('site-name');
         $this->display();
     }
 
@@ -38,7 +38,7 @@ class AuthController extends InitController {
     }
 
     public function register(){
-        $this->meta_title = "Sign up";
+        $this->meta_title = L('Auth_RegisterTo').C('site-name');
         if (isset($_POST['registerSubmit'])) {
             $email = I('post.email');
             $uname = I('post.uname');

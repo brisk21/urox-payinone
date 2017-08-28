@@ -5,5 +5,6 @@ return array(
         'auth/login' => 'Auth/login',
         'auth/logout' => 'Auth/logout',
         'app/view' => 'App/view',
+        'account/profile' => 'Account/profile',
     ),
 );

@@ -33,7 +33,7 @@
             <li class="dropdown">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                     <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
-                    <span>{$Think.lang.NavBar_SelectLanguage}</span> <span class="caret"></span>
+                    <span>{$Think.lang.SideBar_SelectLanguage}</span> <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="javascript: changeLanguage('en-US')">English</a></li>
@@ -94,30 +94,24 @@
                 <ul class="dropdown-menu animated fadeInRight w">
                     <li class="wrapper b-b m-b-sm bg-light m-t-n-xs">
                         <div>
-                            <p>300mb of 500mb used</p>
-                        </div>
-                        <div class="progress progress-xs m-b-none dker">
-                            <div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="50%" style="width: 50%"></div>
+                            <p>{$Think.lang.Global_LastLoginTime}<br>{$user_info.last_login_time}</p>
                         </div>
                     </li>
                     <li>
-                        <a href>
+                        <a href="/account/profile">
                             <span class="badge bg-danger pull-right">30%</span>
-                            <span>Settings</span>
+                            <span>{$Think.lang.SideBar_Profile}</span>
                         </a>
                     </li>
                     <li>
-                        <a ui-sref="app.page.profile">Profile</a>
-                    </li>
-                    <li>
-                        <a ui-sref="app.docs">
+                        <a>
                             <span class="label bg-info pull-right">new</span>
-                            Help
+                            {$Think.lang.Global_Doc}
                         </a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a ui-sref="access.signin">Logout</a>
+                        <a href="/auth/logout">{$Think.lang.SideBar_LogOut}</a>
                     </li>
                 </ul>
                 <!-- / dropdown -->
