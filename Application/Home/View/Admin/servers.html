@@ -1,0 +1,181 @@
+<extend name="Public:base" />
+
+<block name="body_content">
+    <!--  Content -->
+    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+        <include file="Console:head" />
+
+
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Header -->
+            <div class="content bg-gray-lighter">
+                <div class="row items-push">
+                    <div class="col-sm-7">
+                        <h1 class="page-heading">
+                            Management::Servers Manage
+                        </h1>
+                    </div>
+                    <div class="col-sm-5 text-right hidden-xs">
+                        <ol class="breadcrumb push-10-t">
+                            <li>Manage</li>
+                            <li><a class="link-effect" href="">Servers Manage</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Header -->
+
+            <!-- Page Content -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">Servers Manage</h3>
+                            </div>
+                            <div class="block-content">
+                                {$ct.content}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-xs-12">
+                        <!-- Material Register -->
+                        <div class="block block-themed">
+                            <div class="block-header bg-primary-dark">
+                                <h3 class="block-title">Add or Update an server</h3>
+                            </div>
+                            <div class="block-content">
+                                <form class="form-horizontal push-10-t push-10" action="/admin/servers<if condition='$edit.is eq "yes"'>?action=edit&id={$edit.info.id}</if>" method="post">
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="att1" name="title" <if condition='$edit.is eq "yes"'>value="{$edit.info.title}"</if> placeholder="This will shown to users">
+                                                <label for="att1">Server Title</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="cg-pwd3" name="hostname" <if condition='$edit.is eq "yes"'>value="{$edit.info.hostname}"</if> placeholder="Enter the server hostname">
+                                                <label for="cg-pwd3">Server Hostname</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="cg-pwd2" name="ip" <if condition='$edit.is eq "yes"'>value="{$edit.info.ip_address}"</if> placeholder="Enter the server IP Address">
+                                                <label for="cg-pwd2">Serve IP Address</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="cg-pwd10" name="ssh_uname" <if condition='$edit.is eq "yes"'>value="{$edit.info.ssh_uname}"</if> placeholder="Enter the server SSH Username">
+                                                <label for="cg-pwd2">Serve SSH Username</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="cg-pwd9" name="ssh_passwd" <if condition='$edit.is eq "yes"'>value="{$edit.info.ssh_passwd}"</if> placeholder="Enter the server SSH password">
+                                                <label for="cg-pwd2">Serve SSH Password</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material">
+                                                <select class="form-control" id="att-method" name="status" size="1">
+                                                    <option disabled="" selected="">Please choose a server status.</option>
+                                                    <option value="1">Online</option>
+                                                    <option value="0">Offline</option>
+                                                </select>
+                                                <label for="att-method">Server Status</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material">
+                                                <textarea class="form-control" type="text" id="att-port" minlength="6" name="description" <if condition='$edit.is eq "yes"'>value="{$edit.info.description}"</if> placeholder="This will only show to admins"></textarea>
+                                                <label for="att-port">Description</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <button name="submit" class="btn btn-sm btn-primary" type="submit"><i class="fa fa-check push-5-r"></i> Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END Material Register -->
+                    </div>
+                    <div class="col-lg-7 col-md-12 col-xs-12">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">All Servers</h3>
+                            </div>
+                            <div class="block-content table-responsive">
+                                <table class="table table-hover table-borderless">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Hostname</th>
+                                        <th>IP Address</th>
+                                        <th>Add time</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <volist id="servers_info" name="servers_info">
+                                    <tr>
+                                        <td class="text-center">{$servers_info.id}</td>
+                                        <td>{$servers_info.title}</td>
+                                        <td class="hidden-xs">
+                                            {$servers_info.description}
+                                        </td>
+                                        <td class="text-center">{$servers_info.hostname}</td>
+                                        <td class="text-center">{$servers_info.ip_address}</td>
+                                        <td class="text-center">{$servers_info.add_at}</td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <a href="/admin/servers?action=edit&id={$servers_info.id}"><button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Edit this server"><i class="fa fa-pencil"></i></button></a>
+                                                <a href="/admin/servers?action=remove&id={$servers_info.id}"<button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Remove this server"><i class="fa fa-times"></i></button></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </volist>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+
+
+        <include file="Console:foot" />
+    </div>
+    <!-- END Page Container -->
+</block>
+<!-- Page JS Plugins -->
+<block name="custom_js">
+
+</block>
+
+
+
+

@@ -1,0 +1,61 @@
+<extend name="Public:base" />
+
+<block name="body_content">
+    <!--  Content -->
+    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+        <include file="Console:head" />
+
+
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Header -->
+            <div class="content bg-gray-lighter">
+                <div class="row items-push">
+                    <div class="col-sm-7">
+                        <h1 class="page-heading">
+                            Management::Users Manage
+                        </h1>
+                    </div>
+                    <div class="col-sm-5 text-right hidden-xs">
+                        <ol class="breadcrumb push-10-t">
+                            <li>Manage</li>
+                            <li><a class="link-effect" href="">Users Manage</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Header -->
+
+            <!-- Page Content -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">Users Manage</h3>
+                            </div>
+                            <div class="block-content">
+                                {$ct.content}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+
+
+        <include file="Console:foot" />
+    </div>
+    <!-- END Page Container -->
+</block>
+<!-- Page JS Plugins -->
+<block name="custom_js">
+
+</block>
+
+
+
+

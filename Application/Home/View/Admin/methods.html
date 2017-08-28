@@ -1,0 +1,139 @@
+<extend name="Public:base" />
+
+<block name="body_content">
+    <!--  Content -->
+    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+        <include file="Console:head" />
+
+
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Header -->
+            <div class="content bg-gray-lighter">
+                <div class="row items-push">
+                    <div class="col-sm-7">
+                        <h1 class="page-heading">
+                            Management::Methods Manage
+                        </h1>
+                    </div>
+                    <div class="col-sm-5 text-right hidden-xs">
+                        <ol class="breadcrumb push-10-t">
+                            <li>Manage</li>
+                            <li><a class="link-effect" href="">Methods Manage</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Header -->
+
+            <!-- Page Content -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">Methods Manage</h3>
+                            </div>
+                            <div class="block-content">
+                                {$ct.content}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-xs-12">
+                        <!-- Material Register -->
+                        <div class="block block-themed">
+                            <div class="block-header bg-primary-dark">
+                                <h3 class="block-title">Add or Update an method</h3>
+                            </div>
+                            <div class="block-content">
+                                <form class="form-horizontal push-10-t push-10" action="/admin/methods<if condition='$edit.is eq "yes"'>?action=edit&id={$edit.info.id}</if>" method="post">
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="att1" name="title" <if condition='$edit.is eq "yes"'>value="{$edit.info.title}"</if> placeholder="A friendly name to Admins">
+                                                <label for="att1">Method Title</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="cg-pwd3" name="name" <if condition='$edit.is eq "yes"'>value="{$edit.info.name}"</if> placeholder="Enter the method name">
+                                                <label for="cg-pwd3">Method Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <div class="form-material">
+                                                <input class="form-control" type="text" id="cg-pwd2" name="cmd" <if condition='$edit.is eq "yes"'>value="{$edit.info.cmd}"</if> placeholder="Make sure using [host] [port] [time]">
+                                                <label for="cg-pwd2">Command</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <button name="submit" class="btn btn-sm btn-primary" type="submit"><i class="fa fa-check push-5-r"></i> Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END Material Register -->
+                    </div>
+                    <div class="col-lg-7 col-md-12 col-xs-12">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">All Methods</h3>
+                            </div>
+                            <div class="block-content table-responsive">
+                                <table class="table table-hover table-borderless">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Name</th>
+                                        <th>Command</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <volist id="methods_info" name="methods_info">
+                                    <tr>
+                                        <td>{$methods_info.id}</td>
+                                        <td>{$methods_info.title}</td>
+                                        <td>{$methods_info.name}</td>
+                                        <td>{$methods_info.cmd}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="/admin/methods?action=edit&id={$methods_info.id}"><button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Edit this method"><i class="fa fa-pencil"></i></button></a>
+                                                <a href="/admin/methods?action=remove&id={$methods_info.id}"<button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Remove this method"><i class="fa fa-times"></i></button></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </volist>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+
+
+        <include file="Console:foot" />
+    </div>
+    <!-- END Page Container -->
+</block>
+<!-- Page JS Plugins -->
+<block name="custom_js">
+
+</block>
+
+
+
+

@@ -1,0 +1,183 @@
+<extend name="Public:base" />
+
+<block name="body_content">
+    <!--  Content -->
+    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+        <include file="Console:head" />
+
+
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Header -->
+            <div class="content bg-gray-lighter">
+                <div class="row items-push">
+                    <div class="col-sm-7">
+                        <h1 class="page-heading">
+                            Management::Packages Manage
+                        </h1>
+                    </div>
+                    <div class="col-sm-5 text-right hidden-xs">
+                        <ol class="breadcrumb push-10-t">
+                            <li>Manage</li>
+                            <li><a class="link-effect" href="">Packages Manage</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Header -->
+
+            <!-- Page Content -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">Packages Manage</h3>
+                            </div>
+                            <div class="block-content">
+                                {$ct.content}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-xs-12">
+                        <!-- Material Register -->
+                        <div class="block block-themed">
+                            <div class="block-header bg-primary-dark">
+                                <h3 class="block-title">Add or Update an package</h3>
+                            </div>
+                            <div class="block-content">
+                                <form class="form-horizontal push-10-t push-10" action="/admin/packages<if condition='$edit.is eq "yes"'>?action=edit&id={$edit.info.id}</if>" method="post">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material">
+                                            <input class="form-control" type="text" id="att1" name="pk_name" <if condition='$edit.is eq "yes"'>value="{$edit.info.pk_name}"</if> placeholder="This will shown to users">
+                                            <label for="att1">Package Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material">
+                                            <input class="form-control" type="text" id="cg-pwd3" name="max_length" <if condition='$edit.is eq "yes"'>value="{$edit.info.max_length}"</if> placeholder="Enter the max boot time">
+                                            <label for="cg-pwd3">Max Boot time</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material">
+                                            <input class="form-control" type="text" id="cg-pwd2" name="pricing" <if condition='$edit.is eq "yes"'>value="{$edit.info.pricing}"</if> placeholder="Enter the price">
+                                            <label for="cg-pwd2">Price</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material">
+                                            <input class="form-control" type="text" id="cg-pwd5" name="period" <if condition='$edit.is eq "yes"'>value="{$edit.info.period}"</if> placeholder="Enter the period in day(s)">
+                                            <label for="cg-pwd5">Period</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material">
+                                            <input class="form-control" type="text" id="cg-pwd4" name="max_perday" <if condition='$edit.is eq "yes"'>value="{$edit.info.max_perday}"</if> placeholder="Enter the max boot times per day">
+                                            <label for="cg-pwd4">Max Boot Per day</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material">
+                                            <select class="form-control" id="att-method" name="status" size="1">
+                                                <option disabled="" selected="">Please choose a package status.</option>
+                                                <option value="1">On Sale</option>
+                                                <option value="0">Sale OFF</option>
+                                            </select>
+                                            <label for="att-method">Package Status</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material">
+                                            <textarea class="form-control" type="text" id="att-port" minlength="6" name="description" <if condition='$edit.is eq "yes"'>value="{$edit.info.description}"</if> placeholder="This will only show on Order Page"></textarea>
+                                            <label for="att-port">Description</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input name="type" hidden="" style="display: none" value="changepw">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <button name="submit" class="btn btn-sm btn-primary" type="submit"><i class="fa fa-check push-5-r"></i> Submit</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- END Material Register -->
+                    </div>
+                    <div class="col-lg-7 col-md-12 col-xs-12">
+                        <div class="block">
+                            <div class="block-header">
+                                <h3 class="block-title">All Packages</h3>
+                            </div>
+                            <div class="block-content table-responsive">
+                                <table class="table table-hover table-borderless">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Max Length</th>
+                                        <th>pricing</th>
+                                        <th>period</th>
+                                        <th>Max Boot time</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <volist id="packages_info" name="packages_info">
+                                        <tr>
+                                            <td class="text-center">{$packages_info.id}</td>
+                                            <td>{$packages_info.pk_name}</td>
+                                            <td>{$packages_info.max_length}</td>
+                                            <td>{$packages_info.pricing}</td>
+                                            <td>{$packages_info.period} Days</td>
+                                            <td>{$packages_info.max_perday}/day</td>
+                                            <td><if condition="$packages_info.status eq 1"><span class="label label-success">On Sale</span></if><if condition="$packages_info.status eq 0"><span class="label label-warning">Sale Stop</span></if></td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="/admin/packages?action=createkeys&id={$packages_info.id}"<button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Create Keys"><i class="fa fa-plus"></i></button></a>
+                                                    <a href="/admin/packages?action=edit&id={$packages_info.id}"><button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Edit this server"><i class="fa fa-pencil"></i></button></a>
+                                                    <a href="/admin/packages?action=remove&id={$packages_info.id}"<button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="" data-original-title="Remove this server"><i class="fa fa-times"></i></button></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </volist>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+
+
+        <include file="Console:foot" />
+    </div>
+    <!-- END Page Container -->
+</block>
+<!-- Page JS Plugins -->
+<block name="custom_js">
+
+</block>
+
+
+
+

@@ -1,0 +1,108 @@
+<extend name="Public:base" />
+
+<block name="body_content">
+    <!--  Content -->
+    <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
+        <include file="Console:head" />
+
+
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Header -->
+            <div class="content bg-gray-lighter">
+                <div class="row items-push">
+                    <div class="col-sm-7">
+                        <h1 class="page-heading">
+                            Profile of {$user_info.uname}
+                        </h1>
+                    </div>
+                    <div class="col-sm-5 text-right hidden-xs">
+                        <ol class="breadcrumb push-10-t">
+                            <li>Account</li>
+                            <li><a class="link-effect" href="">My Profile</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Header -->
+
+            <!-- Page Content -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><span class="">Profile of {$user_info.uname}</span></div>
+                            <div class="panel-body">
+                                <div class=" profile-container">
+                                    <div class=" table-responsive">
+                                        <table class="table table-striped m-b-none">
+                                            <tbody>
+                                            <tr><td class="field ">Permissions</td>
+                                                <td>Member</td>
+                                            </tr><tr>
+                                                <td class="field ">Registered</td>
+                                                <td>{$user_info.reg_time}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="field ">Last Online</td>
+                                                <td>{$user_info.last_login_time}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="field ">Latest IP</td>
+                                                <td>{$user_info.ip} *Hidden to users</td>
+                                            </tr>
+                                            <tr class="divider">
+                                                <td colspan="2"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <br><br>
+                                            <table class="table table-striped m-b-none">
+                                                <thead>
+                                                <tr>
+                                                    <th class="">Service Details</th>
+                                                    <th class="">Status</th>
+                                                    <th class="">Paid</th>
+                                                    <th class="">Boottime</th>
+                                                    <th class="">Concurrents</th>
+                                                    <th class="">Boots per Day</th>
+                                                    <th class="">Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <volist id="service_info" name="service_info">
+                                                <tr>
+                                                    <td class=""><a><u>Service #{$service_info.id}</u></a></td>
+                                                    <td class=""><?php if ($service_info['end_at']<= getDateTime()) { ?><span class="label label-danger">Experied</span><?php } else { ?><span class="label label-primary">Running</span><?php } ?></td>
+                                                    <td class=""><sup>$</sup>15</td>
+                                                    <td class="">600 Seconds</td>
+                                                    <td class="">1</td>
+                                                    <td class="">50</td>
+                                                    <td><button class="btn btn-inverse btn-rounded btn-sm" value="4230" disabled="">None</button></td>
+                                                </tr>
+                                                </volist>
+                                                </tbody>
+                                            </table>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+
+
+        <include file="Console:foot" />
+    </div>
+    <!-- END Page Container -->
+</block>
+<!-- Page JS Plugins -->
+<block name="custom_js">
+
+</block>
+
