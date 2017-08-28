@@ -1,5 +1,5 @@
 <?php
 return array(
-    'NavBar_Applications' => 'Applications',
-    'NavBar_'
+    'SideBar_Applications' => 'Applications',
+    'NavBar_SelectLanguage' => 'Select Language',
 );

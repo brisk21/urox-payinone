@@ -33,41 +33,15 @@
             <li class="dropdown">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                     <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
-                    <span translate="header.navbar.new.NEW">New</span> <span class="caret"></span>
+                    <span>{$Think.lang.NavBar_SelectLanguage}</span> <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#" translate="header.navbar.new.PROJECT">Projects</a></li>
-                    <li>
-                        <a href>
-                            <span class="badge bg-info pull-right">5</span>
-                            <span translate="header.navbar.new.TASK">Task</span>
-                        </a>
-                    </li>
-                    <li><a href translate="header.navbar.new.USER">User</a></li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href>
-                            <span class="badge bg-danger pull-right">4</span>
-                            <span translate="header.navbar.new.EMAIL">Email</span>
-                        </a>
-                    </li>
+                    <li><a href="javascript: changeLanguage('en-US')">English</a></li>
+                    <li><a href="javascript: changeLanguage('zh-CN');">中文</a></li>
                 </ul>
             </li>
         </ul>
         <!-- / link and dropdown -->
-
-        <!-- search form -->
-        <form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" data-target=".navbar-collapse" role="search" ng-controller="TypeaheadDemoCtrl">
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder" placeholder="Search projects...">
-                    <span class="input-group-btn">
-                <button type="submit" class="btn btn-sm bg-light rounded"><i class="fa fa-search"></i></button>
-              </span>
-                </div>
-            </div>
-        </form>
-        <!-- / search form -->
 
         <!-- nabar right -->
         <ul class="nav navbar-nav navbar-right">

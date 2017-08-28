@@ -1,4 +1,5 @@
 <?php
 return array(
-    'NavBar_Applications' => '应用',
+    'SideBar_Applications' => '应用',
+    'NavBar_SelectLanguage' => '选择语言',
 );
