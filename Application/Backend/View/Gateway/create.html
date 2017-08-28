@@ -1,6 +1,6 @@
 <extend name="Public:base" />
 <block name="body_content">
-    <div class="app app-header-fixed container">
+    <div class="app app-header-fixed <if condition='$Think.config.page-boxed eq 1'>container</if>">
         <!-- header -->
         <include file="Public:header" />
         <!-- /header -->
