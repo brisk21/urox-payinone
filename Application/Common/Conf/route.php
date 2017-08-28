@@ -6,6 +6,7 @@ return array(
     'URL_MAP_RULES' => array(
         'login' => 'Home/Auth/login',
         'register' => 'Home/Auth/register',
+        'logout' => 'Home/Auth/logout',
         
     ),
 );

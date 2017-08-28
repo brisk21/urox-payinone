@@ -1,8 +1,8 @@
 <?php
 namespace Home\Controller;
-use Think\Controller;
-class AuthController extends InitController{
+class AuthController extends InitController {
     public function _initialize(){
+        parent::_initialize();
         if (isset($_SESSION['uid']) and ACTION_NAME!='logout' and ACTION_NAME !='register'){
             redirect('/view');
         }
