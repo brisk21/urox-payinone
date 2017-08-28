@@ -1,6 +1,6 @@
 <?php
-namespace Frontend\Controller;
-use Frontend\Model\UserModel;
+namespace Backend\Controller;
+use Backend\Model\UserModel;
 class ConsoleController extends InitController{
     public function _initialize() {
         if ( isset($_SESSION['uid']) ){

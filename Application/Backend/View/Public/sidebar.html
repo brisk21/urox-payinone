@@ -7,32 +7,33 @@
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                         <span>{$Think.lang.SideBar_Applications}</span>
                     </li>
-                    <li>
+                    <li <if condition="$SideBar_Selected eq 'SideBar_CreateApp' ">class="active"</if>>
                         <a href="/app/create">
                             <i class="glyphicon glyphicon-plus"></i>
                             <span>{$Think.lang.SideBar_CreateApp}</span>
                         </a>
                     </li>
-                    <li>
+                    <li <if condition="$SideBar_Selected eq 'SideBar_ViewApp' ">class="active"</if>>
                         <a href="/app/view">
                             <b class="badge bg-info pull-right">9</b>
                             <i class="fa fa-eye"></i>
                             <span>{$Think.lang.SideBar_ViewApp}</span>
                         </a>
                     </li>
-                    <li>
+                    <li <if condition="$SideBar_Selected eq 'SideBar_AppData' ">class="active"</if>>
                         <a href="/app/data">
                             <i class="glyphicon glyphicon-stats"></i>
                             <span>{$Think.lang.SideBar_AppData}</span>
                         </a>
                     </li>
-                    <li>
+                    <li <if condition="$SideBar_Selected eq 'SideBar_OrderRetrieval' ">class="active"</if>>
                         <a href="/app/order">
                             <i class="fa fa-search"></i>
                             <span>{$Think.lang.SideBar_OrderRetrieval}</span>
                         </a>
                     </li>
 
+                    <!--支付网关侧栏-->
                     <li class="line dk"></li>
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                         <span>{$Think.lang.SideBar_PaymentGateways}</span>
@@ -53,12 +54,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/gateway/create?type=com.alipay.alipay">
+                                <a href="/gateway/create?type=com.alipay">
                                     <span>{$Think.lang.SideBar_AddPaymentGateway}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/gateway/view?type=com.alipay.alipay">
+                                <a href="/gateway/view?type=com.alipay">
                                     <span>{$Think.lang.SideBar_ViewPaymentGateway}</span>
                                 </a>
                             </li>
@@ -80,24 +81,25 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/gateway/create?type=com.tencent.wxpay">
+                                <a href="/gateway/create?type=com.wxpay">
                                     <span>{$Think.lang.SideBar_AddPaymentGateway}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/gateway/view?type=com.tencent.wxpay">
+                                <a href="/gateway/view?type=com.wxpay">
                                     <span>{$Think.lang.SideBar_ViewPaymentGateway}</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
+                    <!-- /支付网关侧栏-->
 
                     <li class="line dk hidden-folded"></li>
 
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                         <span>{$Think.lang.SideBar_Account}</span>
                     </li>
-                    <li>
+                    <li <if condition="$SideBar_Selected eq 'SideBar_Profile' ">class="active"</if>>
                         <a href="/account/profile">
                             <i class="icon-user icon text-success-lter"></i>
                             <b class="badge bg-success pull-right">30%</b>

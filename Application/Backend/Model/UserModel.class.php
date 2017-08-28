@@ -1,5 +1,5 @@
 <?php
-namespace Frontend\Model;
+namespace Backend\Model;
 use Think\Model;
 class UserModel extends Model{
     public function getUserInfoByUid($uid) {

@@ -1,5 +1,5 @@
 <?php
-namespace Frontend\Controller;
+namespace Backend\Controller;
 class AccountController extends InitController{
     public function profile(){
         $this->assign('SideBar_Selected','SideBar_Profile');

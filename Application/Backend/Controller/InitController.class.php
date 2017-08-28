@@ -5,8 +5,8 @@
  * Date: 2017-8-28
  * Time: 12:35
  */
-namespace Frontend\Controller;
-use Frontend\Model\UserModel;
+namespace Backend\Controller;
+use Backend\Model\UserModel;
 use Think\Controller;
 class InitController extends Controller{
     public function _initialize()

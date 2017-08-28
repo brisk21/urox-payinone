@@ -1,5 +1,5 @@
 <?php
-namespace Frontend\Controller;
+namespace Backend\Controller;
 class AppController extends InitController{
     public function _initialize()
     {

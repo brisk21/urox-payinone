@@ -1,5 +1,5 @@
 <?php
-namespace Frontend\Controller;
+namespace Backend\Controller;
 use Think\Controller;
 class AdminController extends InitController{
     public function _initialize() {
