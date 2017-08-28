@@ -35,7 +35,7 @@ class InitController extends Controller{
         if (isset($_SESSION['uid'])) {
             $User = new UserModel();
             $this->assign('user_info',$User->getUserInfoByUid($_SESSION['uid']));
-            $this->assign('messages',M('messages')->where(array("uid"=>$_SESSION['uid']))->select());
+            $this->assign('messages',M('messages')->field('title,create_at')->where(array("uid"=>$_SESSION['uid']))->select());
         }
     }
 }
