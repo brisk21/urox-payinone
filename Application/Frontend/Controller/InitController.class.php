@@ -6,6 +6,7 @@
  * Time: 12:35
  */
 namespace Frontend\Controller;
+use Frontend\Model\UserModel;
 use Think\Controller;
 class InitController extends Controller{
     public function _initialize()
@@ -30,6 +31,10 @@ class InitController extends Controller{
  <footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
 </html>
 ','utf8');exit;
+        }
+        if (isset($_SESSION['uid'])) {
+            $User = new UserModel();
+            $this->assign('user_info',$User->getUserInfoByUid($_SESSION['uid']));
         }
     }
 }

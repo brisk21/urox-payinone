@@ -8,261 +8,85 @@
                         <span>{$Think.lang.SideBar_Applications}</span>
                     </li>
                     <li>
-                        <a href class="auto">
-                  <span class="pull-right text-muted">
-                    <i class="fa fa-fw fa-angle-right text"></i>
-                    <i class="fa fa-fw fa-angle-down text-active"></i>
-                  </span>
-                            <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
-                            <span class="font-bold">Dashboard</span>
+                        <a href>
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>{$Think.lang.NavBar_CreateApp}</span>
                         </a>
-                        <ul class="nav nav-sub dk">
-                            <li class="nav-sub-header">
-                                <a href>
-                                    <span>Dashboard</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Dashboard v1</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <b class="label bg-info pull-right">N</b>
-                                    <span>Dashboard v2</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="../../../../index.php">
+                        <a href>
                             <b class="badge bg-info pull-right">9</b>
-                            <i class="glyphicon glyphicon-envelope icon text-info-lter"></i>
-                            <span class="font-bold">Email</span>
+                            <i class="fa fa-eye"></i>
+                            <span>{$Think.lang.NavBar_ViewApp}</span>
                         </a>
                     </li>
-                    <li class="line dk"></li>
+                    <li>
+                        <a href>
+                            <i class="glyphicon glyphicon-stats"></i>
+                            <span>{$Think.lang.NavBar_AppData}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href>
+                            <i class="fa fa-search"></i>
+                            <span>{$Think.lang.NavBar_OrderRetrieval}</span>
+                        </a>
+                    </li>
 
+                    <li class="line dk"></li>
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-                        <span>Payment Gateways</span>
+                        <span>{$Think.lang.NavBar_PaymentGateways}</span>
                     </li>
                     <li>
                         <a href class="auto">
-                  <span class="pull-right text-muted">
-                    <i class="fa fa-fw fa-angle-right text"></i>
-                    <i class="fa fa-fw fa-angle-down text-active"></i>
-                  </span>
-                            <b class="badge bg-info pull-right">3</b>
-                            <i class="glyphicon glyphicon-th"></i>
-                            <span>Layout</span>
+                            <span class="pull-right text-muted">
+                                <i class="fa fa-fw fa-angle-right text"></i>
+                                <i class="fa fa-fw fa-angle-down text-active"></i>
+                            </span>
+                            <i><svg class="icon" width="22px" viewBox="0 0 1294 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="padding-top: 12px;width: 21px;fill:#c1c3c9;"><path fill="#c1c3c9" d="M826.028178 645.045106c88.693053-161.26482 120.946646-314.457186 120.946646-314.457186l-16.129159 0 0 0-137.069506 0-145.134086 0 0-112.888366 354.773785 0 0-48.374879L648.642073 169.324675 648.642073 0 487.383553 0l0 169.324675-322.520191 0 0 48.374879 322.520191 0 0 112.888366L213.239815 330.58792l0 48.376454 556.348904 0c0 8.06458 0 8.06458-8.06458 16.12286 0 56.441033-40.311874 137.074231-72.563893 201.575119C277.745428 435.402258 156.797207 532.161465 124.545188 548.284325-149.593825 741.794864 108.423903 983.689732 148.740502 975.625152c290.269747 64.504038 475.714132-56.441033 604.725358-209.641274 8.05828 8.066154 16.12286 8.066154 24.18744 8.066154 88.693053 48.374879 516.032306 249.949998 516.032306 249.949998L1293.685605 782.114613C1229.178417 782.114613 995.351278 701.48299 826.028178 645.045106L826.028178 645.045106zM616.390054 717.609c-201.575119 258.016153-443.460538 177.386105-483.778712 161.255371-96.751333-24.18744-129.004927-201.575119-8.06458-258.016153 201.575119-64.499314 378.962799 8.06458 507.97245 72.570193C624.453059 709.54442 616.390054 717.609 616.390054 717.609L616.390054 717.609zM616.390054 717.609"></path></svg></i>
+                            <span>{$Think.lang.Global_Alipay}</span>
                         </a>
                         <ul class="nav nav-sub dk">
                             <li class="nav-sub-header">
                                 <a href>
-                                    <span>Layout</span>
+                                    <span>{$Think.lang.Global_Alipay}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="../../../../index.php">
-                                    <span>Application</span>
+                                <a href="/gateway/create?type=com.alipay.alipay">
+                                    <span>{$Think.lang.NavBar_AddPaymentGateway}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="../../../../index.php">
-                                    <span>Full width</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Boxed layout</span>
+                                <a href="/gateway/view?type=com.alipay.alipay">
+                                    <span>{$Think.lang.NavBar_ViewPaymentGateway}</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href class="auto">
-                  <span class="pull-right text-muted">
-                    <i class="fa fa-fw fa-angle-right text"></i>
-                    <i class="fa fa-fw fa-angle-down text-active"></i>
-                  </span>
-                            <i class="glyphicon glyphicon-briefcase icon"></i>
-                            <span>UI Kits</span>
+                            <span class="pull-right text-muted">
+                                <i class="fa fa-fw fa-angle-right text"></i>
+                                <i class="fa fa-fw fa-angle-down text-active"></i>
+                            </span>
+                            <i><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 20px;padding-top: 10px;"><path fill="#c1c3c9" d="M385.2052 620.794017c-4.212104 2.124114-8.948011 3.341506-13.951239 3.341506-11.624828 0-21.750495-6.401242-27.053555-15.869444l-2.022966-4.446912-84.686406-185.816633c-0.90311-2.030191-1.473875-4.298802-1.473875-6.534902 0-8.554255 6.925045-15.500975 15.493751-15.500975 3.493228 0 6.693849 1.145143 9.280356 3.08141L380.696876 470.195051c7.326026 4.768419 16.039229 7.571672 25.409895 7.571672 5.59928 0 10.94569-1.040382 15.912793-2.857439L891.965357 265.767132c-84.249301-99.277047-222.97418-164.163675-379.952714-164.163675-256.905819 0-465.148473 173.541566-465.148473 387.621922 0 116.800988 62.650528 221.944635 160.702958 292.994084 7.871504 5.624567 13.030067 14.836287 13.030067 25.250948 0 3.449879-0.736938 6.603538-1.64366 9.883633-7.831768 29.217406-20.359706 76.002103-20.944921 78.194853-0.989808 3.670238-2.50342 7.484973-2.50342 11.332221 0 8.565093 6.925045 15.5082 15.493751 15.5082 3.388468 0 6.126696-1.257129 8.966073-2.893564l101.827428-58.777994c7.661983-4.432463 15.768296-7.167079 24.69102-7.167079 4.779257 0 9.367054 0.733325 13.683919 2.05909 47.510797 13.665856 98.771305 21.251978 151.841645 21.251978 256.880532 0 465.123186-173.545178 465.123186-387.636371 0-64.836054-19.192888-125.907946-52.983642-179.617688l-535.55852 309.231997L385.2052 620.794017z"></path></svg></i>
+                            <span>{$Think.lang.Global_WxPay}</span>
                         </a>
                         <ul class="nav nav-sub dk">
                             <li class="nav-sub-header">
                                 <a href>
-                                    <span>UI Kits</span>
+                                    <span>{$Think.lang.Global_WxPay}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="../../../../index.php">
-                                    <span>Buttons</span>
+                                <a href="/gateway/create?type=com.tencent.wxpay">
+                                    <span>{$Think.lang.NavBar_AddPaymentGateway}</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="../../../../index.php">
-                                    <b class="badge bg-info pull-right">3</b>
-                                    <span>Icons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Grid</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <b class="badge bg-success pull-right">13</b>
-                                    <span>Widgets</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Sortable</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Portlet</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Timeline</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Vector Map</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href class="auto">
-                  <span class="pull-right text-muted">
-                    <i class="fa fa-fw fa-angle-right text"></i>
-                    <i class="fa fa-fw fa-angle-down text-active"></i>
-                  </span>
-                            <b class="label bg-primary pull-right">2</b>
-                            <i class="glyphicon glyphicon-list"></i>
-                            <span>Table</span>
-                        </a>
-                        <ul class="nav nav-sub dk">
-                            <li class="nav-sub-header">
-                                <a href>
-                                    <span>Table</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Table static</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Datatable</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Footable</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href class="auto">
-                  <span class="pull-right text-muted">
-                    <i class="fa fa-fw fa-angle-right text"></i>
-                    <i class="fa fa-fw fa-angle-down text-active"></i>
-                  </span>
-                            <i class="glyphicon glyphicon-edit"></i>
-                            <span>Form</span>
-                        </a>
-                        <ul class="nav nav-sub dk">
-                            <li class="nav-sub-header">
-                                <a href>
-                                    <span>Form</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Form elements</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="../../../../index.php">
-                            <i class="glyphicon glyphicon-signal"></i>
-                            <span>Chart</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href class="auto">
-                  <span class="pull-right text-muted">
-                    <i class="fa fa-fw fa-angle-right text"></i>
-                    <i class="fa fa-fw fa-angle-down text-active"></i>
-                  </span>
-                            <i class="glyphicon glyphicon-file icon"></i>
-                            <span>Pages</span>
-                        </a>
-                        <ul class="nav nav-sub dk">
-                            <li class="nav-sub-header">
-                                <a href>
-                                    <span>Pages</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Profile</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Post</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Search</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Invoice</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Price</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Lock screen</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Signin</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Signup</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>Forgot password</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../../../../index.php">
-                                    <span>404</span>
+                                <a href="/gateway/view?type=com.tencent.wxpay">
+                                    <span>{$Think.lang.NavBar_ViewPaymentGateway}</span>
                                 </a>
                             </li>
                         </ul>
@@ -271,19 +95,19 @@
                     <li class="line dk hidden-folded"></li>
 
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-                        <span>Your Stuff</span>
+                        <span>{$Think.lang.NavBar_Account}</span>
                     </li>
                     <li>
                         <a href="../../../../index.php">
                             <i class="icon-user icon text-success-lter"></i>
                             <b class="badge bg-success pull-right">30%</b>
-                            <span>Profile</span>
+                            <span>{$Think.lang.NavBar_Profile}</span>
                         </a>
                     </li>
                     <li>
                         <a href>
-                            <i class="icon-question icon"></i>
-                            <span>Documents</span>
+                            <i class="fa fa-arrow-right"></i>
+                            <span>{$Think.lang.NavBar_LogOut}</span>
                         </a>
                     </li>
                 </ul>
