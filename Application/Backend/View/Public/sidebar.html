@@ -38,7 +38,7 @@
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                         <span>{$Think.lang.SideBar_PaymentGateways}</span>
                     </li>
-                    <li>
+                    <li <if condition="$SideBar_Selected eq 'Gateway_AlipayCreate' or $SideBar_Selected eq 'Gateway_AlipayView' ">class="active"</if>  >
                         <a href class="auto">
                             <span class="pull-right text-muted">
                                 <i class="fa fa-fw fa-angle-right text"></i>
@@ -53,19 +53,19 @@
                                     <span>{$Think.lang.Global_Alipay}</span>
                                 </a>
                             </li>
-                            <li>
+                            <li <if condition="$SideBar_Selected eq 'Gateway_AlipayCreate'">class="active"</if>>
                                 <a href="/gateway/create?type=com.alipay">
                                     <span>{$Think.lang.SideBar_AddPaymentGateway}</span>
                                 </a>
                             </li>
-                            <li>
+                            <li <if condition="$SideBar_Selected eq 'Gateway_AlipayView' ">class="active"</if>>
                                 <a href="/gateway/view?type=com.alipay">
                                     <span>{$Think.lang.SideBar_ViewPaymentGateway}</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li <if condition="$SideBar_Selected eq 'Gateway_WxPayCreate' or $SideBar_Selected eq 'Gateway_WxPayView' ">class="active"</if>>
                         <a href class="auto">
                             <span class="pull-right text-muted">
                                 <i class="fa fa-fw fa-angle-right text"></i>
@@ -80,12 +80,12 @@
                                     <span>{$Think.lang.Global_WxPay}</span>
                                 </a>
                             </li>
-                            <li>
+                            <li <if condition="$SideBar_Selected eq 'Gateway_WxPayCreate'">class="active"</if>>
                                 <a href="/gateway/create?type=com.wxpay">
                                     <span>{$Think.lang.SideBar_AddPaymentGateway}</span>
                                 </a>
                             </li>
-                            <li>
+                            <li <if condition="$SideBar_Selected eq 'Gateway_WxPayView' ">class="active"</if>>
                                 <a href="/gateway/view?type=com.wxpay">
                                     <span>{$Think.lang.SideBar_ViewPaymentGateway}</span>
                                 </a>
