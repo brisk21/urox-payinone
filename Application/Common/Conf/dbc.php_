@@ -8,7 +8,7 @@ return array(
 
     'DB_PWD'    => 'payinone@nor', // 密码
 
-    //'DB_PREFIX' => 'pay_', // 数据库表前缀
+    'DB_PREFIX' => 'pay_', // 数据库表前缀
 
     'DB_HOST'   =>  'localhost', // 服务器地址
 
