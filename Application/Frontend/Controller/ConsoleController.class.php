@@ -24,6 +24,7 @@ class ConsoleController extends InitController{
 
     public function account_settings(){
         $this->meta_title = "Account Settings";
+
         $this->display();
     }
 
