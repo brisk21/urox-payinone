@@ -12,7 +12,7 @@ class InitController extends Controller{
     {
         $System = M('system')->getField('name,value');
         C($System);
-        if (C('site-open')=="OFF" ){
+        if (C('site-open')=="OFF" and get_client_ip() != '127.0.0.1'){
             $this->show('
 <html>
  <head>

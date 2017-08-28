@@ -4,9 +4,7 @@ return array(
     'URL_ROUTER_ON'   => true,
 
     'URL_MAP_RULES' => array(
-        'login' => 'Home/Auth/login',
-        'register' => 'Home/Auth/register',
-        'logout' => 'Home/Auth/logout',
-        
+        'auth/login' => 'Home/Auth/login',
+        'auth/logout' => 'Home/Auth/logout',
     ),
 );

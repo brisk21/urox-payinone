@@ -1,85 +1,93 @@
 <extend name="Public:base" />
+<block name="body_content">
+<div class="app app-header-fixed ">
 
-    <block name="body_content">
-        <!-- Login Content -->
-        <div class="bg-white pulldown">
-    <div class="content content-boxed overflow-hidden">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-                <div class="push-30-t push-50 animated fadeIn">
-                    <!-- Login Title -->
-                    <div class="text-center">
-                        <i class="fa fa-2x fa-circle-o-notch text-primary"></i>
-                        <p class="text-muted push-15-t">Login to Payment System</p>
-                    </div>
-                    <!-- END Login Title -->
-
-                    <!-- Login Form -->
-                    <!-- jQuery Validation (.js-validation-login class is initialized in js/pages/base_pages_login.js) -->
-                    <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                    <form class="js-validation-login form-horizontal push-30-t" action="/login" method="post">
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <div class="form-material form-material-primary floating">
-                                    <input class="form-control" type="text" id="login-username" name="uname">
-                                    <label for="login-username">Username</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <div class="form-material form-material-primary floating">
-                                    <input class="form-control" type="password" id="login-password" name="passwd">
-                                    <label for="login-password">Password</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <div class="font-s13 text-right push-5-t">
-                                    <a href="/register">Didn't Registered?</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--<div class="form-group">
-                            <div class="col-xs-6">
-                                <label class="css-input switch switch-sm switch-primary">
-                                    <input type="checkbox" id="login-remember-me" name="login-remember-me"><span></span> Remember Me?
-                                </label>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="font-s13 text-right push-5-t">
-                                    <a href="base_pages_reminder_v2.html">Forgot Password?</a>
-                                </div>
-                            </div>
-                        </div>-->
-                        <div class="form-group push-30-t">
-                            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                                <button class="btn btn-sm btn-block btn-primary" name="loginSubmit" type="submit">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- END Login Form -->
-                </div>
+    <div class="container w-xxl w-auto-xs">
+        <a href class="navbar-brand block m-t">Urox PayInOne</a>
+        <div class="m-b-lg">
+            <div class="wrapper text-center">
+                <strong>Sign in to manage your apps</strong>
             </div>
+            <form name="form" class="form-validation" onsubmit="return false;">
+                <div class="text-danger wrapper text-center">
+
+                </div>
+                <div class="list-group list-group-sm">
+                    <div class="list-group-item">
+                        <input type="text" placeholder="Username" class="form-control no-border" name="uname" required>
+                    </div>
+                    <div class="list-group-item">
+                        <input type="password" placeholder="Password" class="form-control no-border" name="passwd" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block" id="loginSubmit">Log in</button>
+                <div class="line line-dashed"></div>
+            </form>
+        </div>
+        <div class="text-center">
+            <p>
+                <small class="text-muted">Urox<br>&copy; 2015-2017</small>
+            </p>
         </div>
     </div>
 </div>
-        <!-- END Login Content -->
-
-        <!-- Login Footer -->
-        <div class="pulldown push-30-t text-center animated fadeInUp">
-            <small class="text-muted">&copy; Martian Payment v0.1</small>
-        </div>
-
-        <!-- END Login Footer -->
     </block>
-
-
-
-    <!-- Page JS Plugins -->
-    <block name="custom_js">
-        <script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
-        <script src="assets/js/pages/base_pages_login.js"></script>
-    </block>
-
+<block name="custom_js">
+    <script>
+        $("#loginSubmit").submit(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Home/Service/",
+                dataType: "json",
+                data: {
+                    "name":name.val(),
+                    "email":email.val(),
+                    "pass1":pass1.val(),
+                    "pass2":pass2.val(),
+                    "code":code.val(),
+                    "sch_id":sch_id.val(),
+                    "stu_id":stu_id.val(),
+                    "sch_name":sch_name.val(),
+                    "stu_name":stu_name.val(),
+                    "stu_class":stu_class.val()
+                },
+                timeout: 4000,
+                beforeSend: function(){
+                    $('<p />').addClass("loading").html("<i class='fa fa-circle-o-notch fa-spin'></i>").css("color","#999").appendTo('#msg');
+                },
+                success: function(json){
+                    if(json.success==1){
+                        $(".loading").remove();
+                        $('<p />').html(json.msg).appendTo('#msg').fadeOut(2000);
+                        setTimeout(window.location.href="/auth/login",2500);
+                        return false;
+                    }else if(json.error==1){
+                        $(".loading").remove();
+                        $('<p />').html(json.msg).appendTo('#msg').fadeOut(2000);
+                        name.focus();
+                        return false;
+                    }else if(json.error==2){
+                        $(".loading").remove();
+                        $('<p />').html(json.msg).appendTo('#msg').fadeOut(2000);
+                        email.focus();
+                        return false;
+                    }else if(json.error==3){
+                        $(".loading").remove();
+                        $('<p />').html(json.msg).appendTo('#msg').fadeOut(2000);
+                        code.focus();
+                        return false;
+                    }
+                },
+                error: function () {
+                    swal({
+                        title: "Error",
+                        text: "Login failed, please contact administrator.",
+                        type: "error",
+                        timer: 2000
+                    });
+                    return false;
+                }
+            });
+        })
+  </script>
+</block>
