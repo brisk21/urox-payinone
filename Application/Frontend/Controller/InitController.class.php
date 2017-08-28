@@ -5,7 +5,7 @@
  * Date: 2017-8-28
  * Time: 12:35
  */
-namespace Home\Controller;
+namespace Frontend\Controller;
 use Think\Controller;
 class InitController extends Controller{
     public function _initialize()

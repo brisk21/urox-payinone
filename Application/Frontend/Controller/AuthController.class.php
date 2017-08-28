@@ -1,5 +1,5 @@
 <?php
-namespace Home\Controller;
+namespace Frontend\Controller;
 class AuthController extends InitController {
     public function _initialize(){
         parent::_initialize();

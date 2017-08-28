@@ -37,19 +37,9 @@
         $("#loginSubmit").submit(function () {
             $.ajax({
                 type: "POST",
-                url: "/Home/Service/",
+                url: "/Service/",
                 dataType: "json",
                 data: {
-                    "name":name.val(),
-                    "email":email.val(),
-                    "pass1":pass1.val(),
-                    "pass2":pass2.val(),
-                    "code":code.val(),
-                    "sch_id":sch_id.val(),
-                    "stu_id":stu_id.val(),
-                    "sch_name":sch_name.val(),
-                    "stu_name":stu_name.val(),
-                    "stu_class":stu_class.val()
                 },
                 timeout: 4000,
                 beforeSend: function(){
