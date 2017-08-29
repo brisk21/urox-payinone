@@ -20,4 +20,15 @@ return array(
     'SideBar_Account' => 'My Account',
     'SideBar_Profile' => 'Profile',
     'SideBar_LogOut' => 'Sign Out',
+
+    //NavBar
+    'NavBar_Notifications' => 'Notifications',
+    'NavBar_NotificationsYouHave' => 'You have',
+    'NavBar_UnReadNotifications' => 'unread notification(s)',
+
+    //Authorization
+    'Auth_Login' => 'Login',
+    'Auth_LoginTo' => 'Login to',
+    'Auth_Register' => 'Sign up',
+    'Auth_RegisterTo' => 'Sign up to',
 );

@@ -21,6 +21,11 @@ return array(
     'SideBar_Profile' => '个人信息',
     'SideBar_LogOut' => '退出登录',
 
+    //顶栏语言
+    'NavBar_Notifications' => '通知',
+    'NavBar_NotificationsYouHave' => '你有',
+    'NavBar_UnReadNotifications' => '条未读消息',
+
     //认证语言
     'Auth_Login' => '登录',
     'Auth_LoginTo' => '登录到',
