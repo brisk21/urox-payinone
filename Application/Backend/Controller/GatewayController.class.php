@@ -6,8 +6,6 @@ class GatewayController extends InitController{
         switch (I('get.type'))
         {
             case 'com.alipay':
-                import("Vendor.Gateways.Alipay.AopSdk",dirname(INDEX_PATH),'.php');
-                import("Vendor.Gateways.WxPayPubHelper.WxPayPubHelper",dirname(INDEX_PATH),'.php');
                 $Aop = new \AopClient();
                 $Aop->gatewayUrl = 'https://openapi.alipay.com/gateway.do';
                 $Aop->appId = '2017082508384197';

@@ -20,6 +20,9 @@ define('APP_DEBUG',True);
 // 定义应用目录
 define('APP_PATH','./Application/');
 
+// 引入支付接口
+require './Gateways/load.php';
+
 // 定义入口文件目录
 define('INDEX_PATH',__FILE__);
 

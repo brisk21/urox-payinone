@@ -10,7 +10,7 @@
  */
 
 //引入支付宝Aop
-//require(__DIR__ . '/Alipay/AopSdk.php');
+require(__DIR__ . '/Alipay/AopSdk.php');
 
 //引入微信支付
 require(__DIR__ . '/WxPayPubHelper/WxPayPubHelper.php');

@@ -40,8 +40,8 @@ class Common_util_pub
 	{
 		$this->_Config = array_merge(
 			array(
-				"SSLCERT_PATH" => __DIR__.'/cacert/apiclient_cert.pem',
-				"SSLKEY_PATH" => __DIR__.'/cacert/apiclient_key.pem',
+				"SSLCERT_PATH" => __DIR__ . '/cacert/apiclient_cert.pem',
+				"SSLKEY_PATH" => __DIR__ . '/cacert/apiclient_key.pem',
 				"CURL_TIMEOUT" => 30,
 				"NOTIFY_URL" => '',
 			)
