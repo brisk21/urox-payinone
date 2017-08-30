@@ -1,12 +1,12 @@
 <?php
 return array(
     //全局语言
-    'Global_Alipay' => '支付宝',
-    'Global_WxPay' => '微信支付',
     'Global_LastLoginTime' => '上次登录时间',
     'Global_Help' => '帮助',
     'Global_Doc' => '支持文档',
     'Global_Error' => '发生错误，请尝试联系管理员',
+    'Global_Submit' => '提交',
+    'Global_PleaseEnter' => '请输入',
 
     //侧栏语言
     'SideBar_Applications' => '应用',
@@ -35,5 +35,7 @@ return array(
 
     //网关语言
     'Gateway_ApiInfo' => '接口信息',
-    'Gateway'
+    'Gateway_InputGatewayName' => '接口自定义名称',
+    'Gateway_SelectSubType' => '选择子类型',
+    'Gateway_NowSelectedSub' => '当前选择的子类型'
 );

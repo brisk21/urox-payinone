@@ -21,35 +21,21 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading font-bold">{$Think.lang.Gateway_ApiInfo}</div>
                                 <div class="panel-body">
-                                    <form class="bs-example form-horizontal">
+                                    <?php for($i=0;$i<count($types);$i++) { ?>
+                                    <form role="form" id="<?php echo $types[$i]['id'];?>">
                                         <div class="form-group">
-                                            <label class="col-lg-2 control-label">Email</label>
-                                            <div class="col-lg-10">
-                                                <input type="email" class="form-control" placeholder="Email">
-                                                <span class="help-block m-b-none">Example block-level help text here.</span>
-                                            </div>
+                                            <label>{$Think.lang.Gateway_InputGatewayName}</label>
+                                            <input type="email" class="form-control" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayName}">
                                         </div>
+                                        <?php $input = json_decode($types[$i]['input'],true); foreach ($input as $key=>$value) {?>
                                         <div class="form-group">
-                                            <label class="col-lg-2 control-label">Password</label>
-                                            <div class="col-lg-10">
-                                                <input type="password" class="form-control" placeholder="Password">
-                                            </div>
+                                            <label><?php echo $value['display_name'][LANG_SET];?></label>
+                                            <input type="<?php echo $value['type'];?>" class="form-control" placeholder="<?php echo $value['description'][LANG_SET];?>">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-lg-offset-2 col-lg-10">
-                                                <div class="checkbox">
-                                                    <label class="i-checks">
-                                                        <input type="checkbox"><i></i> Remember me
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-lg-offset-2 col-lg-10">
-                                                <button type="submit" class="btn btn-sm btn-info">Sign in</button>
-                                            </div>
-                                        </div>
+                                        <?php }?>
+                                        <button type="submit" class="btn btn-sm btn-primary">{$Think.lang.Global_Submit}</button>
                                     </form>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>

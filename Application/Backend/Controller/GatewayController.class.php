@@ -21,7 +21,9 @@ class GatewayController extends InitController{
         }
         switch ($_GET['action']) {
             case 'create':
+                $this->assign('types',M('gateways_type')->where(array("parent_id"=>$type_info[0]['id']))->select());
                 $this->assign('SideBar_Selected','Gateway_'.$type_info[0]['name'].'Create');
+                $this->assign('type_info_input',$type_info[0]['input']);
                 $this->display('create');
                 break;
             case 'edit':

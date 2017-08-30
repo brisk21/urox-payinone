@@ -5,6 +5,8 @@ return array(
     'Global_Help' => 'Help',
     'Global_Doc' => 'Support Documents',
     'Global_Error' => 'There is something wrong, please contact administrator',
+    'Global_Submit' => 'Submit',
+    'Global_PleaseEnter' => 'Enter',
 
     //Sidebar language
     'SideBar_Applications' => 'Applications',
@@ -33,4 +35,7 @@ return array(
     
     //Gateway
     'Gateway_ApiInfo' => 'Gateway Info',
+    'Gateway_InputGatewayName' => 'Nickname',
+    'Gateway_SelectSubType' => 'Select a sub-type',
+    'Gateway_NowSelectedSub' => 'Selected Sub-type',
 );
