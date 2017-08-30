@@ -37,5 +37,7 @@ return array(
     'Gateway_ApiInfo' => '接口信息',
     'Gateway_InputGatewayName' => '接口自定义名称',
     'Gateway_SelectSubType' => '选择子类型',
-    'Gateway_NowSelectedSub' => '当前选择的子类型'
+    'Gateway_NowSelectedSub' => '当前选择的子类型',
+    'Gateway_SupportPhone' => '支持手机',
+    'Gateway_RequirePhone' => '需要手机',
 );

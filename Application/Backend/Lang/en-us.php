@@ -38,4 +38,6 @@ return array(
     'Gateway_InputGatewayName' => 'Nickname',
     'Gateway_SelectSubType' => 'Select a sub-type',
     'Gateway_NowSelectedSub' => 'Selected Sub-type',
+    'Gateway_SupportPhone' => 'Phone Supported',
+    'Gateway_RequirePhone' => 'Phone Required',
 );
