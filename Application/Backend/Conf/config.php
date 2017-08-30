@@ -12,7 +12,7 @@ return array(
 
         'account/profile' => 'Account/profile',
 
-        'gateway/create' => 'Gateway/create',
+        'gateway/edit' => 'Gateway/edit',
         'gateway/view' => 'Gateway/view',
     ),
 );

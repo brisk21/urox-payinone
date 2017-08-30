@@ -36,6 +36,12 @@ class InitController extends Controller{
             $User = new UserModel();
             $this->assign('user_info',$User->getUserInfoByUid($_SESSION['uid']));
             $this->assign('messages',M('messages')->field('title,create_at')->where(array("uid"=>$_SESSION['uid']))->select());
+            $gateways_info = M('gateways_type')->field('name,friend_name,icon_html')->where(array("status"=>"ACTIVE","level"=>"TOP"))->where('`uid` = '.$_SESSION['uid'].' or `access` = "PUBLIC"')->select();
+            for ($i=0;$i<count($gateways_info);$i++) {
+                $l = json_decode($gateways_info[$i]['friend_name'],true);
+                $gateways_info[$i]['friend_name'] = $l[LANG_SET];
+            }
+            $this->assign('gateways_info',$gateways_info);
         }
     }
 }

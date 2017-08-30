@@ -1,36 +1,43 @@
 <?php
 namespace Backend\Controller;
 class GatewayController extends InitController{
-    public function create()
-    {
-        switch (I('get.type'))
-        {
-            case 'com.alipay':
-                $this->assign('SideBar_Selected','Gateway_AlipayCreate');
-                break;
-            case 'com.wxpay':
-                $this->assign('SideBar_Selected','Gateway_WxPayCreate');
-                break;
-            default:
-                $this->error('发生错误，请尝试联系管理员','/',3);
+    public function _initialize() {
+        parent::_initialize();
+        if ( isset($_SESSION['uid']) ){
+            if ($_SESSION['uid']==1 or $_SESSION['uid']==2){
+                $this->assign('isadmin',1);
+            }
+        } else {
+            $this->error('Your session has timed out, now redirecting to login...','/auth/login',3);exit;
         }
+        $this->assign('uid',session("uid"));
+    }
+    public function edit()
+    {
         $this->meta_title = L('SideBar_AddPaymentGateway');
-        $this->display();
+        $type_info = M('gateways_type')->where(array("name"=>I('get.type')))->select();
+        if (!$type_info) {
+            $this->error(L('Global_Error'),'/',3);
+        }
+        switch ($_GET['action']) {
+            case 'create':
+                $this->assign('SideBar_Selected','Gateway_'.$type_info[0]['name'].'Create');
+                $this->display('create');
+                break;
+            case 'edit':
+                $this->assign('SideBar_Selected','Gateway_'.$type_info[0]['name'].'Edit');
+                $this->display('edit');
+                break;
+        }
     }
 
     public function view()
     {
-        switch (I('get.type'))
-        {
-            case 'com.alipay':
-                $this->assign('SideBar_Selected','Gateway_AlipayView');
-                break;
-            case 'com.wxpay':
-                $this->assign('SideBar_Selected','Gateway_WxPayView');
-                break;
-            default:
-                $this->error('发生错误，请尝试联系管理员','/',3);
+        $type_info = M('gateways_type')->where(array("name"=>I('get.type')))->select();
+        if (!$type_info) {
+            $this->error(L('Global_Error'),'/',3);
         }
+        $this->assign('SideBar_Selected','Gateway_'.$type_info[0]['name'].'View');
         $this->meta_title = L('SideBar_ViewPaymentGateway');
         $this->display();
     }

@@ -1,11 +1,10 @@
 <?php
 return array(
     //Global language
-    'Global_Alipay' => 'Alipay',
-    'Global_WxPay' => 'WeChat Pay',
     'Global_LastLoginTime' => 'Last Login',
     'Global_Help' => 'Help',
     'Global_Doc' => 'Support Documents',
+    'Global_Error' => 'There is something wrong, please contact administrator',
 
     //Sidebar language
     'SideBar_Applications' => 'Applications',
@@ -31,4 +30,7 @@ return array(
     'Auth_LoginTo' => 'Login to',
     'Auth_Register' => 'Sign up',
     'Auth_RegisterTo' => 'Sign up to',
+    
+    //Gateway
+    'Gateway_ApiInfo' => 'Gateway Info',
 );

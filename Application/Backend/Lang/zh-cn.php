@@ -6,6 +6,7 @@ return array(
     'Global_LastLoginTime' => '上次登录时间',
     'Global_Help' => '帮助',
     'Global_Doc' => '支持文档',
+    'Global_Error' => '发生错误，请尝试联系管理员',
 
     //侧栏语言
     'SideBar_Applications' => '应用',
@@ -31,4 +32,8 @@ return array(
     'Auth_LoginTo' => '登录到',
     'Auth_Register' => '注册',
     'Auth_RegisterTo' => '注册到',
+
+    //网关语言
+    'Gateway_ApiInfo' => '接口信息',
+    'Gateway'
 );

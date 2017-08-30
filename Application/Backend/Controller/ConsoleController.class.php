@@ -3,6 +3,7 @@ namespace Backend\Controller;
 use Backend\Model\UserModel;
 class ConsoleController extends InitController{
     public function _initialize() {
+        parent::_initialize();
         if ( isset($_SESSION['uid']) ){
             if ($_SESSION['uid']==1 or $_SESSION['uid']==2){
                 $this->assign('isadmin',1);
