@@ -383,7 +383,6 @@ class AopClient {
 
 		//签名
 		$totalParams["sign"] = $this->generateSign($totalParams, $this->signType);
-		exit();
 
 		if ("GET" == strtoupper($httpmethod)) {
 			
