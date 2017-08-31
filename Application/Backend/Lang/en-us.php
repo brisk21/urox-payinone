@@ -40,4 +40,7 @@ return array(
     'Gateway_NowSelectedSub' => 'Selected Sub-type',
     'Gateway_SupportPhone' => 'Phone Supported',
     'Gateway_RequirePhone' => 'Phone Required',
+    'Gateway_Status' => 'Status',
+    'Gateway_StatusACTIVE' => 'Active(Online)',
+    'Gateway_StatusINACTIVE' => 'Inactive(Developing)',
 );

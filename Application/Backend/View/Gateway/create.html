@@ -23,7 +23,7 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label>{$Think.lang.Gateway_SelectSubType}</label>
-                                        <select name="account" onchange="changeSubType(this)" class="form-control m-b">
+                                        <select id="gtw_type" onchange="changeSubType(this)" class="form-control m-b">
                                             <option>----{$Think.lang.Gateway_SelectSubType}-----</option>
                                             <?php   for($i=0;$i<count($types);$i++) { ?>
                                             <option value="<?php echo $types[$i]['id']?>"><?php $friend_l2 = json_decode($types[$i]['friend_name'],true);echo $friend_l2[LANG_SET]; ?></option>
@@ -41,32 +41,50 @@
                                         <?php $input = json_decode($types[$i]['input'],true); foreach ($input as $key=>$value) {?>
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <?php if ($value['type'] == "text") {?>
                                                 <label><?php echo $value['display_name'][LANG_SET];?></label>
                                                 <input type="<?php echo $value['type'];?>" class="form-control" placeholder="<?php echo $value['description'][LANG_SET];?>">
+                                                <?php } elseif ($value['type'] == "textarea") {?>
+                                                <label><?php echo $value['display_name'][LANG_SET];?></label>
+                                                <textarea class="form-control" placeholder="<?php echo $value['description'][LANG_SET];?>"></textarea>
+                                                <?php } else {}?>
                                             </div>
                                         </div>
                                         <?php }?>
                                         <div class="line line-dashed b-b line-lg pull-in"></div>
-                                        <div class="form-group">
-                                                <label class="col-sm-2 control-label">{$Think.lang.Gateway_SupportPhone}</label>
-                                                <div class="col-sm-10">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">{$Think.lang.Gateway_SupportPhone}</label>
+                                                <div class="col-sm-8">
                                                     <label class="i-switch m-t-xs m-r">
                                                         <input type="checkbox" id="SupportPhone" checked="">
                                                         <i></i>
                                                     </label>
                                                 </div>
                                             </div>
-                                        <div class="line line-dashed b-b line-lg pull-in"></div>
-                                        <div class="form-group">
-                                                <label class="col-sm-2 control-label">{$Think.lang.Gateway_RequirePhone}</label>
-                                                <div class="col-sm-10">
+                                        </div>
+                                        <!--<div class="line line-dashed b-b line-lg pull-in"></div>-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">{$Think.lang.Gateway_RequirePhone}</label>
+                                                <div class="col-sm-8">
                                                     <label class="i-switch m-t-xs m-r">
                                                         <input type="checkbox" id="RequirePhone" onchange="requirePhone(this);" checked="">
                                                         <i></i>
                                                     </label>
                                                 </div>
                                             </div>
+                                        </div>
                                         <div class="line line-dashed b-b line-lg pull-in"></div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>{$Think.lang.Gateway_Status}</label>
+                                                <select id="gtw_status" class="form-control m-b">
+                                                    <option value="ACTIVE">{$Think.lang.Gateway_StatusACTIVE}</option>
+                                                    <option value="INACTIVE">{$Think.lang.Gateway_StatusINACTIVE}</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div class="line line-dashed b-b line-lg pull-in"></div>
                                         <div class="col-lg-12">
                                             <button type="submit" class="btn btn-primary">{$Think.lang.Global_Submit}</button>

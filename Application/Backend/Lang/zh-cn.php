@@ -40,4 +40,7 @@ return array(
     'Gateway_NowSelectedSub' => '当前选择的子类型',
     'Gateway_SupportPhone' => '支持手机',
     'Gateway_RequirePhone' => '需要手机',
+    'Gateway_Status' => '状态',
+    'Gateway_StatusACTIVE' => '已激活（上线）',
+    'Gateway_StatusINACTIVE' => '未激活（开发中）',
 );
