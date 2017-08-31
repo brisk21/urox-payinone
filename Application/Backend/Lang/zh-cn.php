@@ -16,6 +16,7 @@ return array(
     'Global_Detail' => '详情',
     'Global_GoBack' => '返回上一页',
     'Global_Error_NotFound' => '无法找到您请求的内容，请检查您是否有权限访问！',
+    'Global_UseCtrlToSelectMultiple' => '按住ctrl键来多选',
 
     //侧栏语言
     'SideBar_Applications' => '应用',
@@ -76,4 +77,5 @@ return array(
     'AppCreate_AppStatus' => '状态',
     'AppCreate_AppStatusACTIVE' => '已激活（上线）',
     'AppCreate_AppStatusINACTIVE' => '未激活（开发中）',
+    'AppCreate_SelectGateways' => '选择网关',
 );

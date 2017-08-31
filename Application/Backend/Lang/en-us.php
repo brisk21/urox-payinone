@@ -16,7 +16,8 @@ return array(
     'Global_Detail' => 'Detail',
     'Global_GoBack' => 'Back',
     'Global_Error_NotFound' => 'Couldn\'t find the page, please check if you have the permission to access the page!' ,
-
+    'Global_UseCtrlToSelectMultiple' => 'Press "ctrl" to choose multiple',
+    
     //Sidebar language
     'SideBar_Applications' => 'Applications',
     'SideBar_SelectLanguage' => 'Select Language',
@@ -76,4 +77,5 @@ return array(
     'AppCreate_AppStatus' => 'Status',
     'AppCreate_AppStatusACTIVE' => 'Active(Online)',
     'AppCreate_AppStatusINACTIVE' => 'Inactive(Developing)',
+    'AppCreate_SelectGateways' => 'Select the payment gateways for this app',
 );

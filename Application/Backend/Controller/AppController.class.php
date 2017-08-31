@@ -22,6 +22,8 @@ class AppController extends InitController{
 
     public function create()
     {
+        $this->assign('user_gateways_info',M('gateways')->where(array("uid"=>session('uid')))->select());
+        $this->assign('public_gateways_info',M('gateways')->where(array("access"=>"PUBLIC"))->where("`uid` !=".session('uid'))->select());
         $this->assign('SideBar_Selected','SideBar_CreateApp');
         $this->meta_title = L('SideBar_CreateApp');
         $this->display();

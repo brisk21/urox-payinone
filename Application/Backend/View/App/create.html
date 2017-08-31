@@ -35,25 +35,23 @@
                                             <input style="display: none;" name="app_appid" value="<?php echo $appid;?>">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12">
                                         <div class="form-group">
                                             <label>{$Think.lang.AppCreate_AppDescription}</label>
                                             <textarea class="form-control" name="app_description" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.AppCreate_AppDescription}"></textarea>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Chosen multiple</label>
-                                            <div class="col-sm-10">
-                                                <select ui-jq="chosen" multiple="" class="w-md" style="display: none;">
-                                                    <option value="AK">Alaska</option>
-                                                    <option value="HI">Hawaii</option>
-                                                    <option value="CA">California</option>
-                                                    <option value="NV">Nevada</option>
-                                                    <option value="OR">Oregon</option>
-                                                    <option value="WA">Washington</option>
-                                                </select><div class="chosen-container chosen-container-multi" style="width: 240px;" title=""><ul class="chosen-choices"><li class="search-field"><input type="text" value="Select Some Options" class="default" autocomplete="off" style="width: 147px;"></li></ul><div class="chosen-drop"><ul class="chosen-results"><li class="active-result" data-option-array-index="0" style="">Alaska</li><li class="active-result" data-option-array-index="1" style="">Hawaii</li><li class="active-result" data-option-array-index="2" style="">California</li><li class="active-result" data-option-array-index="3" style="">Nevada</li><li class="active-result" data-option-array-index="4" style="">Oregon</li><li class="active-result" data-option-array-index="5" style="">Washington</li></ul></div></div>
-                                            </div>
+                                            <label>{$Think.lang.AppCreate_SelectGateways} - ({$Think.lang.Global_UseCtrlToSelectMultiple})</label>
+                                            <select multiple name="app_gateways" class="form-control">
+                                                <volist id="user_gateways_info" name="user_gateways_info">
+                                                    <option value="{$user_gateways_info.id}">{$user_gateways_info.friend_name} - {$user_gateways_info.name}({$Think.lang.Gateway_AccessSmallPRIVATE})</option>
+                                                </volist>
+                                                <volist id="public_gateways_info" name="public_gateways_info">
+                                                    <option value="{$public_gateways_info.id}">{$public_gateways_info.friend_name} - {$public_gateways_info.name}({$Think.lang.Gateway_AccessSmallPUBLIC})</option>
+                                                </volist>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -64,6 +62,10 @@
                                                 <option value="ACTIVE">{$Think.lang.AppCreate_AppStatusACTIVE}</option>
                                             </select>
                                         </div>
+                                    </div>
+                                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                                    <div class="col-lg-12">
+                                        <button type="submit" name="saveSubmit" onclick="saveAppSubmit('create');" class="btn btn-primary"><i class="fa fa-check"></i> {$Think.lang.Global_Submit}</button>
                                     </div>
                                 </form>
                             </div>
@@ -83,4 +85,9 @@
 <block name="custom_css">
 </block>
 <block name="custom_js">
+    <script type="text/javascript">
+        function saveAppSubmit() {
+
+        }
+    </script>
 </block>
