@@ -41,6 +41,7 @@ class InitController extends Controller{
                 $l = json_decode($gateways_info[$i]['friend_name'],true);
                 $gateways_info[$i]['friend_name'] = $l[LANG_SET];
             }
+            $this->assign('app_count',M('apps')->where(array("uid"=>session('uid')))->where('`status` !=9')->count());
             $this->assign('gateways_info',$gateways_info);
         }
     }
