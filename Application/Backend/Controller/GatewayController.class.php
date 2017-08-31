@@ -43,4 +43,17 @@ class GatewayController extends InitController{
         $this->meta_title = L('SideBar_ViewPaymentGateway');
         $this->display();
     }
+
+    public function actionEditSave()
+    {
+        switch ( $_GET['action'] )
+        {
+            case 'create':
+                break;
+            case 'edit':
+                break;
+            default:
+                break;
+        }
+    }
 }

@@ -7,6 +7,8 @@ return array(
     'Global_Error' => 'There is something wrong, please contact administrator',
     'Global_Submit' => 'Submit',
     'Global_PleaseEnter' => 'Enter',
+    'Global_ErrorSmall' => 'Error',
+    'Global_Success' => 'Success',
 
     //Sidebar language
     'SideBar_Applications' => 'Applications',
@@ -48,4 +50,7 @@ return array(
     'Gateway_AccessPRIVATE' => 'Private(Only can be  accessed by me)',
     'Gateway_AccessPUBLIC' => 'Public(Can be accessed by all users)',
     'Gateway_SimpleInfo' => 'Gateway Simple Info',
+    'Gateway_Submitting' => 'We are submitting your gateway credentials, please wait...',
+    'Gateway_SubmitError' => 'There is something wrong, please contact administrator.',
+    'Gateway_SubmitSuccess' => 'Your gateway credentials have been saved',
 );

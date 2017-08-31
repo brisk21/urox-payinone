@@ -31,17 +31,17 @@
                                         </select>
                                     </div>
                                     <?php for($i=0;$i<count($types);$i++) { ?>
-                                    <form role="form" class="InputG" id="Input<?php echo $types[$i]['id'];?>" style="display: none;">
+                                    <form role="form" class="InputG" id="Input<?php echo $types[$i]['id'];?>" style="display: none;" onsubmit="return false;">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>{$Think.lang.Gateway_InputGatewayNickName}</label>
-                                                <input type="text" class="form-control" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayNickName}">
+                                                <input type="text" class="form-control" id="gtw_friend_name" name="gtw_friend_name" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayNickName}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>{$Think.lang.Gateway_InputGatewayName}</label>
-                                                <input type="text" class="form-control" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayName}" value="<?php echo $types[$i]['name'].date('Ymds');?>">
+                                                <input type="text" class="form-control" id="gtw_name" name="gtw_name" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayName}" value="<?php echo $types[$i]['name'].date('Ymds');?>">
                                             </div>
                                         </div>
                                         <?php $input = json_decode($types[$i]['input'],true); foreach ($input as $key=>$value) {?>
@@ -49,10 +49,10 @@
                                             <div class="form-group">
                                                 <?php if ($value['type'] == "text") {?>
                                                 <label><?php echo $value['display_name'][LANG_SET];?></label>
-                                                <input type="<?php echo $value['type'];?>" class="form-control" placeholder="<?php echo $value['description'][LANG_SET];?>">
+                                                <input type="<?php echo $value['type'];?>" class="form-control" name="<?php echo $key;?>" placeholder="<?php echo $value['description'][LANG_SET];?>">
                                                 <?php } elseif ($value['type'] == "textarea") {?>
                                                 <label><?php echo $value['display_name'][LANG_SET];?></label>
-                                                <textarea class="form-control" placeholder="<?php echo $value['description'][LANG_SET];?>"></textarea>
+                                                <textarea class="form-control" name="<?php echo $key;?>" placeholder="<?php echo $value['description'][LANG_SET];?>"></textarea>
                                                 <?php } else {}?>
                                             </div>
                                         </div>
@@ -63,7 +63,7 @@
                                                 <label class="col-sm-4 control-label">{$Think.lang.Gateway_SupportPhone}</label>
                                                 <div class="col-sm-8">
                                                     <label class="i-switch m-t-xs m-r">
-                                                        <input type="checkbox" id="SupportPhone" checked="">
+                                                        <input type="checkbox" id="gtw_SupportPhone" name="gtw_SupportPhone" checked="">
                                                         <i></i>
                                                     </label>
                                                 </div>
@@ -75,7 +75,7 @@
                                                 <label class="col-sm-4 control-label">{$Think.lang.Gateway_RequirePhone}</label>
                                                 <div class="col-sm-8">
                                                     <label class="i-switch m-t-xs m-r">
-                                                        <input type="checkbox" id="RequirePhone" onchange="requirePhone(this);" checked="">
+                                                        <input type="checkbox" id="gtw_RequirePhone" name="gtw_RequirePhone" onchange="requirePhone(this);" checked="">
                                                         <i></i>
                                                     </label>
                                                 </div>
@@ -85,7 +85,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>{$Think.lang.Gateway_Status}</label>
-                                                <select id="gtw_status" class="form-control m-b">
+                                                <select id="gtw_status" name="gtw_status" class="form-control m-b">
                                                     <option value="ACTIVE">{$Think.lang.Gateway_StatusACTIVE}</option>
                                                     <option value="INACTIVE">{$Think.lang.Gateway_StatusINACTIVE}</option>
                                                 </select>
@@ -94,7 +94,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>{$Think.lang.Gateway_Access}</label>
-                                                <select id="gtw_access" class="form-control m-b">
+                                                <select id="gtw_access" name="gtw_access" class="form-control m-b">
                                                     <option value="PUBLIC">{$Think.lang.Gateway_AccessPUBLIC}</option>
                                                     <option value="PRIVATE">{$Think.lang.Gateway_AccessPRIVATE}</option>
                                                 </select>
@@ -102,7 +102,7 @@
                                         </div>
                                         <div class="line line-dashed b-b line-lg pull-in"></div>
                                         <div class="col-lg-12">
-                                            <button type="submit" class="btn btn-primary">{$Think.lang.Global_Submit}</button>
+                                            <button type="submit" name="saveSubmit" onclick="saveSubmit('create',{$types.$i.id});" class="btn btn-primary">{$Think.lang.Global_Submit}</button>
                                         </div>
                                     </form>
                                     <?php } ?>
@@ -133,6 +133,52 @@
         if (obj.checked==true){
             $("#SupportPhone").prop('checked', true);
         }
+    }
+    function saveSubmit(actionType,type_id) {
+        var friend_name = $("#friend_name").val();
+        var name = $("#gtw_name").val();
+        var config_content = JSON.stringify($("#Input"+type_id).serializeArray());
+        swal({
+            title: "{$Think.lang.Global_Submit}",
+            text: "{$Think.lang.Gateway_Submitting}",
+            type: "info"
+        });
+        $.ajax({
+            type: "POST",
+            url: "/Gateway/actionEditSave?action="+actionType,
+            dataType: "json",
+            data: {"friend_name":friend_name,"name":name,"config":config_content},
+            timeout: 10000,
+            beforeSend: function(){
+                swal({
+                    title: "{$Think.lang.Global_Submit}",
+                    text: "{$Think.lang.Gateway_Submitting}",
+                    type: "info"
+                });
+            },
+            success: function(json){
+                if(json.success==1){
+                    swal({
+                        title: "{$Think.lang.Global_Success}",
+                        text: "{$Think.lang.Gateway_SubmitSuccess}",
+                        type: "success",
+                        timer: 2000
+                    });
+                    setTimeout(window.location='/gateway/view?type={$Think.get.type}',2000);
+                    return false;
+                } else {
+
+                }
+            },
+            error: function () {
+                swal({
+                    title: "{$Think.lang.Global_Error}",
+                    text: "{$Think.lang.Gateway_SubmitError}",
+                    type: "info"
+                });
+                return false;
+            }
+        });
     }
 </script>
 </block>

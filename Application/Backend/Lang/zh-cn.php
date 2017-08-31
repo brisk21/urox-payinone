@@ -7,6 +7,8 @@ return array(
     'Global_Error' => '发生错误，请尝试联系管理员',
     'Global_Submit' => '提交',
     'Global_PleaseEnter' => '请输入',
+    'Global_ErrorSmall' => '错误',
+    'Global_Success' => '成功',
 
     //侧栏语言
     'SideBar_Applications' => '应用',
@@ -48,4 +50,7 @@ return array(
     'Gateway_AccessPRIVATE' => '私有（只可被我使用）',
     'Gateway_AccessPUBLIC' => '公共（可被所有用户使用）',
     'Gateway_SimpleInfo' => '接口简要信息',
+    'Gateway_Submitting' => '我们正在提交您的网关凭据，请等待...',
+    'Gateway_SubmitError' => '发生了错误，请尝试联系管理员',
+    'Gateway_SubmitSuccess' => '您的网关信息已经成功保存',
 );
