@@ -35,7 +35,8 @@ return array(
     
     //Gateway
     'Gateway_ApiInfo' => 'Gateway Info',
-    'Gateway_InputGatewayName' => 'Nickname',
+    'Gateway_InputGatewayNickName' => 'Nickname',
+    'Gateway_InputGatewayName' => 'Gateway Name',
     'Gateway_SelectSubType' => 'Select a sub-type',
     'Gateway_NowSelectedSub' => 'Selected Sub-type',
     'Gateway_SupportPhone' => 'Phone Supported',
@@ -43,4 +44,8 @@ return array(
     'Gateway_Status' => 'Status',
     'Gateway_StatusACTIVE' => 'Active(Online)',
     'Gateway_StatusINACTIVE' => 'Inactive(Developing)',
+    'Gateway_Access' => 'Permission',
+    'Gateway_AccessPRIVATE' => 'Private(Only can be  accessed by me)',
+    'Gateway_AccessPUBLIC' => 'Public(Can be accessed by all users)',
+    'Gateway_SimpleInfo' => 'Gateway Simple Info',
 );

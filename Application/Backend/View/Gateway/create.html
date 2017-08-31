@@ -34,8 +34,14 @@
                                     <form role="form" class="InputG" id="Input<?php echo $types[$i]['id'];?>" style="display: none;">
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <label>{$Think.lang.Gateway_InputGatewayNickName}</label>
+                                                <input type="email" class="form-control" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayNickName}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
                                                 <label>{$Think.lang.Gateway_InputGatewayName}</label>
-                                                <input type="email" class="form-control" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayName}">
+                                                <input type="email" class="form-control" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayName}" value="<?php echo $types[$i]['name'].date('Ymds');?>">
                                             </div>
                                         </div>
                                         <?php $input = json_decode($types[$i]['input'],true); foreach ($input as $key=>$value) {?>
@@ -82,6 +88,15 @@
                                                 <select id="gtw_status" class="form-control m-b">
                                                     <option value="ACTIVE">{$Think.lang.Gateway_StatusACTIVE}</option>
                                                     <option value="INACTIVE">{$Think.lang.Gateway_StatusINACTIVE}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>{$Think.lang.Gateway_Access}</label>
+                                                <select id="gtw_access" class="form-control m-b">
+                                                    <option value="PUBLIC">{$Think.lang.Gateway_AccessPUBLIC}</option>
+                                                    <option value="PRIVATE">{$Think.lang.Gateway_AccessPRIVATE}</option>
                                                 </select>
                                             </div>
                                         </div>
