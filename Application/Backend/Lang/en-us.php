@@ -60,6 +60,7 @@ return array(
     'Gateway_Access' => 'Permission',
     'Gateway_AccessSmallPRIVATE' => 'Private',
     'Gateway_AccessSmallPUBLIC' => 'Public',
+    'Gateway_AccessSmallAPPLICATION' => 'Belongs to this app',
     'Gateway_AccessPRIVATE' => 'Private(Only can be accessed by myself)',
     'Gateway_AccessPUBLIC' => 'Public(Can be accessed by all users)',
     'Gateway_SimpleInfo' => 'Gateway Simple Info',

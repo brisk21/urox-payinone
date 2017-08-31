@@ -51,6 +51,9 @@
                                                     <volist id="public_gateways_info" name="public_gateways_info">
                                                         <option value="{$public_gateways_info.id}" <?php if (in_array($app_gateway_info,$public_gateways_info['id'])) {?>selected<?php }?>>{$public_gateways_info.friend_name} - {$public_gateways_info.name}({$Think.lang.Gateway_AccessSmallPUBLIC})</option>
                                                     </volist>
+                                                    <volist id="app_gateways_info" name="app_gateways_info">
+                                                        <option value="{$app_gateways_info.id}" <?php if (in_array($app_gateway_info,$app_gateways_info['id'])) {?>selected<?php }?>>{$app_gateways_info.friend_name} - {$app_gateways_info.name}({$Think.lang.Gateway_AccessSmallAPPLICATION})</option>
+                                                    </volist>
                                                 </select>
                                             </div>
                                         </div>

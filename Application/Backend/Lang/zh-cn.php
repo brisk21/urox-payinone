@@ -60,6 +60,7 @@ return array(
     'Gateway_Access' => '使用权限',
     'Gateway_AccessSmallPRIVATE' => '私有',
     'Gateway_AccessSmallPUBLIC' => '公共',
+    'Gateway_AccessSmallAPPLICATION' => '应用携带网关',
     'Gateway_AccessPRIVATE' => '私有（只可被自己使用）',
     'Gateway_AccessPUBLIC' => '公共（可被所有用户使用）',
     'Gateway_SimpleInfo' => '接口简要信息',

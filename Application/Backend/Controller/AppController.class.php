@@ -49,6 +49,14 @@ class AppController extends InitController{
                 } else {
                     $this->assign('app_info',$app_info);
                     $this->assign('app_gateway_info',parseDbObj2SimpleArr($AppGateway->readLinkByAppId($appid)));
+                    $i = 0;
+                    $app_gateways_info = array();
+                    foreach (parseDbObj2SimpleArr($AppGateway->readLinkByAppId($appid)) as $item) {
+                        $q = M('gateways')->where(array("id"=>$item))->where("`uid`!=".session('uid')." and `access`!='PUBLIC'")->select();
+                        $app_gateways_info[$i] = $q[0];
+                        $i += 1;
+                    }
+                    $this->assign('app_gateways_info',$app_gateways_info);
                 }
                 $this->assign('SideBar_Selected','SideBar_EditApp');
                 $this->meta_title = L('SideBar_EditApp');
