@@ -11,3 +11,11 @@ function changeLanguage(lang) {
     setCookie('think_language',lang);
     location.reload()
 }
+
+function goBack() {
+    if (document.referrer!="") {
+        window.location = document.referrer;
+    } else {
+        window.location = '/';
+    }
+}
