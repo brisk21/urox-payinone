@@ -13,7 +13,7 @@
                             <span>{$Think.lang.SideBar_CreateApp}</span>
                         </a>
                     </li>
-                    <li <if condition="$SideBar_Selected eq 'SideBar_ViewApp' ">class="active"</if>>
+                    <li <if condition="$SideBar_Selected eq 'SideBar_ViewApp' or $SideBar_Selected eq 'SideBar_EditApp' ">class="active"</if>>
                         <a href="/app/view">
                             <b class="badge bg-info pull-right">{$app_count}</b>
                             <i class="fa fa-eye"></i>

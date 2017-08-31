@@ -23,4 +23,8 @@ class AppGatewayModel extends Model{
     public function readLinkByGatewayId($gateway_id) {
         return $this->where(array("gateway_id"=>$gateway_id))->select();
     }
+    
+    public function deleteAlllinkByAppId($appid) {
+        return $this->where(array("appid"=>$appid))->delete();
+    }
 }

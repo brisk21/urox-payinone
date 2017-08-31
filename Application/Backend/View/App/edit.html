@@ -1,97 +1,108 @@
 <extend name="Public:base" />
 <block name="body_content">
-<div class="app app-header-fixed <if condition='$Think.config.page-boxed eq 1'>container</if>">
-    <!-- header -->
-    <include file="Public:header" />
-    <!-- /header -->
+    <div class="app app-header-fixed <if condition='$Think.config.page-boxed eq 1'>container</if>">
+        <!-- header -->
+        <include file="Public:header" />
+        <!-- /header -->
 
-    <!-- aside -->
-    <include file="Public:sidebar" />
-    <!-- /aside -->
+        <!-- aside -->
+        <include file="Public:sidebar" />
+        <!-- /aside -->
 
-    <!-- content -->
-    <div id="content" class="app-content" role="main">
-        <div class="app-content-body ">
-            <div class="bg-light lter b-b wrapper-md">
-                <h1 class="m-n font-thin h3">{$meta_title}</h1>
-            </div>
-            <div class="wrapper-md">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading font-bold">{$Think.lang.AppCreate_AppInfo}</div>
-                            <div class="panel-body">
-                                <form id="appCreateForm" method="post" onsubmit="return false;">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>{$Think.lang.AppCreate_AppName}</label>
-                                            <input class="form-control" name="app_appname" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.AppCreate_AppName}" required="required">
+        <!-- content -->
+        <div id="content" class="app-content" role="main">
+            <div class="app-content-body ">
+                <div class="bg-light lter b-b wrapper-md">
+                    <h1 class="m-n font-thin h3">{$meta_title}</h1>
+                </div>
+                <div class="wrapper-md">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading font-bold">{$Think.lang.AppCreate_AppInfo}</div>
+                                <div class="panel-body">
+                                    <form id="appCreateForm" method="post" onsubmit="return false;">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>{$Think.lang.AppCreate_AppName}</label>
+                                                <input class="form-control" name="app_appname" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.AppCreate_AppName}" value="{$app_info.appname}">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>{$Think.lang.AppCreate_AppId}</label>
-                                            <input class="form-control" disabled value="<?php $appid =  date('YmdHis').GetRandString(4,'BIGWORDx'); echo $appid;?>" >
-                                            <input style="display: none;" name="app_appid" value="<?php echo $appid;?>">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>{$Think.lang.AppCreate_AppId}</label>
+                                                <input class="form-control" disabled value="{$app_info.appid}">
+                                                <input style="display: none;" name="app_appid" value="{$app_info.appid}">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label>{$Think.lang.AppCreate_AppDescription}</label>
-                                            <textarea class="form-control" name="app_description" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.AppCreate_AppDescription}"></textarea>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label>{$Think.lang.AppCreate_AppDescription}</label>
+                                                <textarea class="form-control" name="app_description" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.AppCreate_AppDescription}">{$app_info.description}</textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label>{$Think.lang.AppCreate_SelectGateways} - ({$Think.lang.Global_UseCtrlToSelectMultiple})</label>
-                                            <select multiple name="app_gateways" class="form-control">
-                                                <volist id="user_gateways_info" name="user_gateways_info">
-                                                    <option value="{$user_gateways_info.id}">{$user_gateways_info.friend_name} - {$user_gateways_info.name}({$Think.lang.Gateway_AccessSmallPRIVATE})</option>
-                                                </volist>
-                                                <volist id="public_gateways_info" name="public_gateways_info">
-                                                    <option value="{$public_gateways_info.id}">{$public_gateways_info.friend_name} - {$public_gateways_info.name}({$Think.lang.Gateway_AccessSmallPUBLIC})</option>
-                                                </volist>
-                                            </select>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label>{$Think.lang.AppCreate_SelectGateways} - ({$Think.lang.Global_UseCtrlToSelectMultiple})</label>
+                                                <select multiple name="app_gateways" class="form-control">
+                                                    <volist id="user_gateways_info" name="user_gateways_info">
+                                                        <option value="{$user_gateways_info.id}" <?php if ($app_gateway_info[$user_gateways_info['id']]!=null) {?>selected<?php }?>>{$user_gateways_info.friend_name} - {$user_gateways_info.name}({$Think.lang.Gateway_AccessSmallPRIVATE})</option>
+                                                    </volist>
+                                                    <volist id="public_gateways_info" name="public_gateways_info">
+                                                        <option value="{$public_gateways_info.id}" <?php if (in_array($app_gateway_info,$public_gateways_info['id'])) {?>selected<?php }?>>{$public_gateways_info.friend_name} - {$public_gateways_info.name}({$Think.lang.Gateway_AccessSmallPUBLIC})</option>
+                                                    </volist>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>{$Think.lang.AppCreate_AppStatus}</label>
-                                            <select class="form-control" name="app_status">
-                                                <option value="INACTIVE">{$Think.lang.AppCreate_AppStatusINACTIVE}</option>
-                                                <option value="ACTIVE">{$Think.lang.AppCreate_AppStatusACTIVE}</option>
-                                            </select>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>{$Think.lang.AppCreate_AppStatus}</label>
+                                                <select class="form-control" name="app_status">
+                                                    <option value="INACTIVE" <?php if ($app_info['status']=="INACTIVE"){?>selected<?php }?>>{$Think.lang.AppCreate_AppStatusINACTIVE}</option>
+                                                    <option value="ACTIVE" <?php if ($app_info['status']=="ACTIVE"){?>selected<?php }?>>{$Think.lang.AppCreate_AppStatusACTIVE}</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="line line-dashed b-b line-lg pull-in"></div>
-                                    <div class="col-lg-12">
-                                        <button type="submit" name="saveSubmit" onclick="saveAppSubmit('create');" class="btn btn-primary"><i class="fa fa-check"></i> {$Think.lang.Global_Submit}</button>
-                                    </div>
-                                </form>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>{$Think.lang.AppCreate_AppAccess}</label>
+                                                <select class="form-control" name="app_access">
+                                                    <option value="PRIVATE" <?php if ($app_info['access']=="PRIVATE"){?>selected<?php }?>>{$Think.lang.AppCreate_AppAccessPRIVATE}</option>
+                                                    <option value="PUBLICA" <?php if ($app_info['access']=="PUBLICA"){?>selected<?php }?>>{$Think.lang.AppCreate_AppAccessPUBLICA}</option>
+                                                    <option value="PUBLICB" <?php if ($app_info['access']=="PUBLICB"){?>selected<?php }?>>{$Think.lang.AppCreate_AppAccessPUBLICB}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                                        <div class="col-lg-12">
+                                            <button type="submit" name="saveSubmit" onclick="saveAppSubmit();" class="btn btn-primary"><i class="fa fa-check"></i> {$Think.lang.Global_Submit}</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- /content -->
+        <!-- /content -->
 
-    <!-- footer -->
-    <include file="Public:footer" />
-    <!-- /footer -->
-</div>
+        <!-- footer -->
+        <include file="Public:footer" />
+        <!-- /footer -->
+    </div>
 </block>
 <block name="custom_css">
 </block>
 <block name="custom_js">
     <script type="text/javascript">
         function saveAppSubmit() {
+            var form_data = JSON.stringify($("#appCreateForm").serializeArray());
             $.ajax({
                 type: "POST",
-                url: "/App/actionCreateSave?action="+actionType,
+                url: "/App/actionEditSave",
                 dataType: "json",
-                data: {"form_data":form_data,"type_id":type_id},
+                data: {"form_data":form_data},
                 timeout: 10000,
                 beforeSend: function(){
                     swal({
@@ -108,14 +119,14 @@
                             type: "success",
                             timer: 2000
                         });
-                        setTimeout(window.location='/gateway/view?type={$Think.get.type}',2000);
+                        setTimeout(window.location='/app/view',2000);
                         return false;
                     } else if (json.error==1) {
                         swal({
-                            title: "{$Think.lang.Global_Error}",
+                            title: "{$Think.lang.Global_ErrorSmall}",
                             text: json.msg,
                             type: "error",
-                            timer:2000,
+                            timer:2000
                         });
                         return false;
                     }

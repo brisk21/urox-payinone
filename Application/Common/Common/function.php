@@ -122,3 +122,12 @@ function parseJqJSON2($original_arr){
     }
     return $arr;
 }
+
+function parseDbObj2SimpleArr($original_arr)
+{
+    $new_arr = array();
+    foreach ($original_arr as $key=>$value) {
+        $new_arr[$value['gateway_id']] = true;
+    }
+    return $new_arr;
+}

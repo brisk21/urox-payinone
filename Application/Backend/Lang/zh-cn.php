@@ -25,6 +25,7 @@ return array(
     'SideBar_AddPaymentGateway' => '新增接口配置',
     'SideBar_ViewPaymentGateway' => '查看所有接口',
     'SideBar_CreateApp' => '创建应用',
+    'SideBar_EditApp' => '编辑应用',
     'SideBar_ViewApp' => '我的应用',
     'SideBar_AppData' => '应用数据',
     'SideBar_OrderRetrieval' => '订单检索',
@@ -59,7 +60,7 @@ return array(
     'Gateway_Access' => '使用权限',
     'Gateway_AccessSmallPRIVATE' => '私有',
     'Gateway_AccessSmallPUBLIC' => '公共',
-    'Gateway_AccessPRIVATE' => '私有（只可被我使用）',
+    'Gateway_AccessPRIVATE' => '私有（只可被自己使用）',
     'Gateway_AccessPUBLIC' => '公共（可被所有用户使用）',
     'Gateway_SimpleInfo' => '接口简要信息',
     'Gateway_Submitting' => '我们正在提交您的网关凭据，请等待...',
@@ -77,6 +78,15 @@ return array(
     'AppCreate_AppStatus' => '状态',
     'AppCreate_AppStatusACTIVE' => '已激活（上线）',
     'AppCreate_AppStatusINACTIVE' => '未激活（开发中）',
+    'AppCreate_AppAccess' => '应用权限',
+    'AppCreate_AppAccessPRIVATE' => '私有（仅自己可见）',
+    'AppCreate_AppAccessPUBLICA' => '公有模式A（可见，可浏览项目数据）',
+    'AppCreate_AppAccessPUBLICB' => '公有模式B（完全访问）',
+    'AppCreate_AppAccessSmallPRIVATE' => '私有',
+    'AppCreate_AppAccessSmallPUBLIC' => '公有',
     'AppCreate_SelectGateways' => '选择网关',
     'AppCreate_SubmitSuccess' => '您的应用信息已经成功保存',
+
+    //Apps
+    'App_AppSimpleInfo' => '应用简要信息',
 );

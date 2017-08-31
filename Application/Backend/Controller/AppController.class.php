@@ -35,14 +35,20 @@ class AppController extends InitController{
                 $this->display('create');
                 break;
             default:
-                $appid = I('get.id');
+                $this->assign('user_gateways_info',M('gateways')->where(array("uid"=>session('uid')))->select());
+                $this->assign('public_gateways_info',M('gateways')->where(array("access"=>"PUBLIC"))->where("`uid` !=".session('uid'))->select());
+                $AppGateway = new AppGatewayModel();
+                $appid = I('get.appid');
                 $Apps = new AppsModel();
                 $app_info = $Apps->getAppsInfoByAppId($appid);
                 if (!$app_info) {
                     $this->error(L('Global_Error_NotFound'),'/app/view');exit;
                 } else {
-                    $this->display('app_info',$app_info);
+                    $this->assign('app_info',$app_info);
+                    $this->assign('app_gateway_info',parseDbObj2SimpleArr($AppGateway->readLinkByAppId($appid)));
                 }
+                $this->assign('SideBar_Selected','SideBar_EditApp');
+                $this->meta_title = L('SideBar_EditApp');
                 $this->display();
                 break;
         }
@@ -64,7 +70,6 @@ class AppController extends InitController{
 
     public function actionCreateSave()
     {
-        $app_gateways_id = array();
         $form_data_origin = json_decode($_POST['form_data'],true);
         $AppGateway = new AppGatewayModel();
         $form_data = parseJqJSON2($form_data_origin);
@@ -78,6 +83,7 @@ class AppController extends InitController{
         }
         $description = $form_data['app_description'];
         $status = $form_data['app_status'];
+        $access = $form_data['app_access'];
         $con = array(
             "appname" => $appname,
             "description" => $description,
@@ -86,10 +92,47 @@ class AppController extends InitController{
             "appkey" => GetRandString(32,'WORDx'),
             "create_at" => getDateTime(),
             "uid" => session('uid'),
-            "access" => "PRIVATE",
+            "access" => $access,
             "v_status" => "ACTIVE",
         );
         $id = M('apps')->data($con)->add();
+        foreach ($form_data_origin as $key=>$value)
+        {
+            if ($value['name'] == "app_gateways") {
+                $AppGateway->createLink($appid,$value['value']);
+            }
+        }
+        echo json_encode(array(
+            "success" => true,
+            "msg" => L('AppCreate_SubmitSuccess')
+        ));
+    }
+
+    public function actionEditSave()
+    {
+        $form_data_origin = json_decode($_POST['form_data'],true);
+        $AppGateway = new AppGatewayModel();
+        $form_data = parseJqJSON2($form_data_origin);
+        $appname = $form_data['app_appname'];
+        $appid = $form_data['app_appid'];
+        if (!M('apps')->where(array("appid"=>$appid))->select()) {
+            echo json_encode(array(
+                "error" => true,
+                "msg" => L('Global_Error'),
+            ));
+        }
+        $description = $form_data['app_description'];
+        $status = $form_data['app_status'];
+        $access = $form_data['app_access'];
+        $con = array(
+            "appname" => $appname,
+            "description" => $description,
+            "status" => $status,
+            "update_at" => getDateTime(),
+            "access" => $access,
+        );
+        $id = M('apps')->where(array("appid"=>$appid))->data($con)->save();
+        $AppGateway->deleteAlllinkByAppId($appid);
         foreach ($form_data_origin as $key=>$value)
         {
             if ($value['name'] == "app_gateways") {
