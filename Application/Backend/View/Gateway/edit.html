@@ -60,7 +60,7 @@
                                                 <label class="col-sm-4 control-label">{$Think.lang.Gateway_SupportPhone}</label>
                                                 <div class="col-sm-8">
                                                     <label class="i-switch m-t-xs m-r">
-                                                        <input type="checkbox" id="gtw_SupportPhone" name="gtw_SupportPhone" checked="">
+                                                        <input type="checkbox" id="gtw_SupportPhone" name="gtw_SupportPhone"<?php if ($gtw_info['phone_support']=="ON"){?> checked=""<?php }?>>
                                                         <i></i>
                                                     </label>
                                                 </div>
@@ -72,7 +72,7 @@
                                                 <label class="col-sm-4 control-label">{$Think.lang.Gateway_RequirePhone}</label>
                                                 <div class="col-sm-8">
                                                     <label class="i-switch m-t-xs m-r">
-                                                        <input type="checkbox" id="gtw_RequirePhone" name="gtw_RequirePhone" onchange="requirePhone(this);" checked="">
+                                                        <input type="checkbox" id="gtw_RequirePhone" name="gtw_RequirePhone" onchange="requirePhone(this);"<?php if ($gtw_info['phone_required']=="ON"){?> checked=""<?php }?>>
                                                         <i></i>
                                                     </label>
                                                 </div>
@@ -83,8 +83,8 @@
                                             <div class="form-group">
                                                 <label>{$Think.lang.Gateway_Status}</label>
                                                 <select id="gtw_status" name="gtw_status" class="form-control m-b">
-                                                    <option value="ACTIVE">{$Think.lang.Gateway_StatusACTIVE}</option>
-                                                    <option value="INACTIVE">{$Think.lang.Gateway_StatusINACTIVE}</option>
+                                                    <option value="ACTIVE" <?php if ($gtw_info['status'] == "ACTIVE") { ?>selected<?php }?>>{$Think.lang.Gateway_StatusACTIVE}</option>
+                                                    <option value="INACTIVE" <?php if ($gtw_info['status'] == "INACTIVE") { ?>selected<?php }?>>{$Think.lang.Gateway_StatusINACTIVE}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -92,8 +92,8 @@
                                             <div class="form-group">
                                                 <label>{$Think.lang.Gateway_Access}</label>
                                                 <select id="gtw_access" name="gtw_access" class="form-control m-b">
-                                                    <option value="PUBLIC">{$Think.lang.Gateway_AccessPUBLIC}</option>
-                                                    <option value="PRIVATE">{$Think.lang.Gateway_AccessPRIVATE}</option>
+                                                    <option value="PUBLIC" <?php if ($gtw_info['access'] == "PUBLIC") { ?>selected<?php }?>>{$Think.lang.Gateway_AccessPUBLIC}</option>
+                                                    <option value="PRIVATE" <?php if ($gtw_info['access'] == "PRIVATE") { ?>selected<?php }?>>{$Think.lang.Gateway_AccessPRIVATE}</option>
                                                 </select>
                                             </div>
                                         </div>
