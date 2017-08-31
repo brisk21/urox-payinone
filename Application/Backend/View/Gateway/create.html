@@ -102,7 +102,7 @@
                                         </div>
                                         <div class="line line-dashed b-b line-lg pull-in"></div>
                                         <div class="col-lg-12">
-                                            <button type="submit" name="saveSubmit" onclick="saveSubmit('create',{$types.$i.id});" class="btn btn-primary"><i class="fa fa-check"></i> {$Think.lang.Global_Submit}</button>
+                                            <button type="submit" name="saveSubmit" onclick="saveSubmitAction('create',{$types.$i.id});" class="btn btn-primary"><i class="fa fa-check"></i> {$Think.lang.Global_Submit}</button>
                                         </div>
                                     </form>
                                     <?php } ?>
@@ -131,10 +131,10 @@
     }
     function requirePhone(obj) {
         if (obj.checked==true){
-            $("#SupportPhone").prop('checked', true);
+            $("#gtw_SupportPhone").prop('checked', true);
         }
     }
-    function saveSubmit(actionType,type_id) {
+    function saveSubmitAction(actionType,type_id) {
         var friend_name = $("#friend_name").val();
         var name = $("#gtw_name").val();
         var config_content = JSON.stringify($("#Input"+type_id).serializeArray());

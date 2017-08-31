@@ -27,6 +27,7 @@ class GatewayController extends InitController{
                 $this->display('create');
                 break;
             case 'edit':
+                $gtw_id = I('get.id');
                 $this->assign('SideBar_Selected','Gateway_'.$type_info[0]['name'].'Edit');
                 $this->display('edit');
                 break;
@@ -39,6 +40,8 @@ class GatewayController extends InitController{
         if (!$type_info) {
             $this->error(L('Global_Error'),'/',3);
         }
+        $this->assign('user_gateways_info',M('gateways')->where(array("uid"=>session('uid'),"type"=>I('get.type')))->select());
+        $this->assign('public_gateways_info',M('gateways')->where(array("type"=>I('get.type'),"access"=>"PUBLIC"))->where("`uid` !=".session('uid'))->select());
         $this->assign('SideBar_Selected','Gateway_'.$type_info[0]['name'].'View');
         $this->meta_title = L('SideBar_ViewPaymentGateway');
         $this->display();
