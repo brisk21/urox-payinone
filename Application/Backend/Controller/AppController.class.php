@@ -18,6 +18,9 @@ class AppController extends InitController{
 
     public function view()
     {
+        $this->assign('user_apps_info',M('apps')->where(array("uid"=>session('uid')))->select());
+        $this->assign('public_apps_infoa',M('apps')->where("`access` = 'PUBLICA' and `uid`!=".session('uid'))->select());
+        $this->assign('public_apps_infob',M('apps')->where("`access` = 'PUBLICB' and `uid`!=".session('uid'))->select());
         $this->assign('SideBar_Selected','SideBar_ViewApp');
         $this->meta_title = L('SideBar_ViewApp');
         $this->display();

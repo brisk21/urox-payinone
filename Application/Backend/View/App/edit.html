@@ -76,6 +76,7 @@
                                         <div class="line line-dashed b-b line-lg pull-in"></div>
                                         <div class="col-lg-12">
                                             <button type="submit" name="saveSubmit" onclick="saveAppSubmit();" class="btn btn-primary"><i class="fa fa-check"></i> {$Think.lang.Global_Submit}</button>
+                                            <button type="button" onclick="goBack();" class="btn btn-default"><i class="fa fa-arrow-left"></i> {$Think.lang.Global_GoBack}</button>
                                         </div>
                                     </form>
                                 </div>
@@ -107,7 +108,7 @@
                 beforeSend: function(){
                     swal({
                         title: "{$Think.lang.Global_Submit}",
-                        text: "{$Think.lang.Gateway_Submitting}",
+                        text: "{$Think.lang.AppCreate_Submitting}",
                         type: "info"
                     });
                 },

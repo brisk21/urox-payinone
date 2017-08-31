@@ -21,12 +21,87 @@
                         <div class="panel-heading">
                             {$Think.lang.AppCreate_AppInfo} - {$Think.lang.AppCreate_AppAccessSmallPRIVATE}
                         </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped b-t b-light">
+                                <thead>
+                                <tr>
+                                    <th>{$Think.lang.AppCreate_AppId}</th>
+                                    <th>{$Think.lang.AppCreate_AppName}</th>
+                                    <th>{$Think.lang.Global_CreateAt}</th>
+                                    <th>{$Think.lang.Global_UpdateAt}</th>
+                                    <th>{$Think.lang.AppCreate_AppAccess}</th>
+                                    <th>{$Think.lang.AppCreate_AppStatus}</th>
+                                    <th>{$Think.lang.Global_Action}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist id="user_apps_info" name="user_apps_info">
+                                    <tr>
+                                        <td>{$user_apps_info.appid}</td>
+                                        <td>{$user_apps_info.appname}</td>
+                                        <td><?php echo date('Y-m-d',strtotime($user_apps_info['create_at'])); ?></td>
+                                        <td><?php if ($user_apps_info['update_at']!=null) {echo date('Y-m-d',strtotime($user_apps_info['update_at']));} else {echo '-';} ?></td>
+                                        <td>{:L('AppCreate_AppAccessSmall'.$user_apps_info['access'])}</td>
+                                        <td>{:L('AppCreate_AppStatusSmall'.$user_apps_info['status'])}</td>
+                                        <td>
+                                            <a href="/app/edit?appid={$user_apps_info.appid}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> {$Think.lang.Global_Edit}</button></a>
+                                            <button class="btn btn-info btn-xs"><i class="fa fa-info"></i> {$Think.lang.Global_Detail}</button>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             {$Think.lang.AppCreate_AppInfo} - {$Think.lang.AppCreate_AppAccessSmallPUBLIC}
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped b-t b-light">
+                                <thead>
+                                <tr>
+                                    <th>{$Think.lang.AppCreate_AppId}</th>
+                                    <th>{$Think.lang.AppCreate_AppName}</th>
+                                    <th>{$Think.lang.Global_CreateAt}</th>
+                                    <th>{$Think.lang.Global_UpdateAt}</th>
+                                    <th>{$Think.lang.AppCreate_AppAccess}</th>
+                                    <th>{$Think.lang.AppCreate_AppStatus}</th>
+                                    <th>{$Think.lang.Global_Action}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist id="public_apps_infoa" name="public_apps_infoa">
+                                    <tr>
+                                        <td>{$public_apps_infoa.appid}</td>
+                                        <td>{$public_apps_infoa.appname}</td>
+                                        <td><?php echo date('Y-m-d',strtotime($public_apps_infoa['create_at'])); ?></td>
+                                        <td><?php if ($public_apps_infoa['update_at']!=null) {echo date('Y-m-d',strtotime($public_apps_infoa['update_at']));} else {echo '-';} ?></td>
+                                        <td>{:L('AppCreate_AppAccessSmall'.$public_apps_infoa['access'])}</td>
+                                        <td>{:L('AppCreate_AppStatusSmall'.$public_apps_infoa['status'])}</td>
+                                        <td>
+                                            <button class="btn btn-info btn-xs"><i class="fa fa-info"></i> {$Think.lang.Global_Detail}</button>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                <volist id="public_apps_infob" name="public_apps_infob">
+                                    <tr>
+                                        <td>{$public_apps_infob.appid}</td>
+                                        <td>{$public_apps_infob.appname}</td>
+                                        <td><?php echo date('Y-m-d',strtotime($public_apps_infob['create_at'])); ?></td>
+                                        <td><?php if ($public_apps_infob['update_at']!=null) {echo date('Y-m-d',strtotime($public_apps_infob['update_at']));} else {echo '-';} ?></td>
+                                        <td>{:L('AppCreate_AppAccessSmall'.$public_apps_infob['access'])}</td>
+                                        <td>{:L('AppCreate_AppStatusSmall'.$public_apps_infob['status'])}</td>
+                                        <td>
+                                            <a href="/app/edit?appid={$public_apps_infob.appid}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> {$Think.lang.Global_Edit}</button></a>
+                                            <button class="btn btn-info btn-xs"><i class="fa fa-info"></i> {$Think.lang.Global_Detail}</button>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
