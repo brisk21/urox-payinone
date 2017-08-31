@@ -83,11 +83,26 @@ function encrypt2($string,$operation,$key='20020807hH'){
  * @return string
 
  */
-function GetRandString($length = 20,$mixed_case=false){
-    if($mixed_case) {
-        $seeds = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    }else{
-        $seeds = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+function GetRandString($length = 20,$type='BIGWORD'){
+    switch ($type) {
+        case 'WORD':
+            $seeds = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            break;
+        case 'BIGWORD':
+            $seeds = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            break;
+        case 'WORDx':
+            $seeds = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            break;
+        case 'BIGWORDx':
+            $seeds = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            break;
+        case 'x':
+            $seeds = '0123456789';
+            break;
+        default:
+            $seeds = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            break;
     }
     $str = '';
     $seeds_count = strlen ( $seeds );

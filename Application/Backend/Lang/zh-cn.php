@@ -67,4 +67,13 @@ return array(
 
     //Gateway Add
     'GatewayAdd_GatewayNameExists' => '您输入的接口名称已经存在，请使用另一个',
+
+    //Create App
+    'AppCreate_AppInfo' => '应用信息',
+    'AppCreate_AppName' => '应用名称',
+    'AppCreate_AppId' => '应用ID',
+    'AppCreate_AppDescription' => '应用描述&备注信息',
+    'AppCreate_AppStatus' => '状态',
+    'AppCreate_AppStatusACTIVE' => '已激活（上线）',
+    'AppCreate_AppStatusINACTIVE' => '未激活（开发中）',
 );

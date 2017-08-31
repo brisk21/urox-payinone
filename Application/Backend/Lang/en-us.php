@@ -67,4 +67,13 @@ return array(
     
     //Gateway Add
     'GatewayAdd_GatewayNameExists' => 'The gateway name you entered is exists, please choose another one.',
+
+    //Create App
+    'AppCreate_AppInfo' => 'Application Info',
+    'AppCreate_AppName' => 'App Name',
+    'AppCreate_AppId' => 'App ID',
+    'AppCreate_AppDescription' => 'Application Description&Remark',
+    'AppCreate_AppStatus' => 'Status',
+    'AppCreate_AppStatusACTIVE' => 'Active(Online)',
+    'AppCreate_AppStatusINACTIVE' => 'Inactive(Developing)',
 );
