@@ -14,6 +14,7 @@ return array(
     'Global_Action' => 'Action',
     'Global_Edit' => 'Edit',
     'Global_Detail' => 'Detail',
+    'Global_Error_NotFound' => 'Couldn\'t find the page, please check if you have the permission to access the page!' ,
 
     //Sidebar language
     'SideBar_Applications' => 'Applications',

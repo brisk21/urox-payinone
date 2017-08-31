@@ -1,5 +1,7 @@
 <?php
 namespace Backend\Controller;
+use Backend\Model\GatewaysTypeModel;
+
 class GatewayController extends InitController{
     public function _initialize() {
         parent::_initialize();
@@ -28,6 +30,13 @@ class GatewayController extends InitController{
                 break;
             case 'edit':
                 $gtw_id = I('get.id');
+                $gtw_info = M('gateways')->where(array("id"=>$gtw_id,"uid"=>session('uid')))->select();
+                if (!$gtw_info) {
+                    $this->error(L('Global_Error_NotFound'),'/gateway/view?type='.I('get.type'));exit;
+                }
+                $GatewaysType = new GatewaysTypeModel();
+                $this->assign('type_info',$GatewaysType->getInfoByName($gtw_info[0]['subtype']));
+                $this->assign('gtw_info',$gtw_info[0]);
                 $this->assign('SideBar_Selected','Gateway_'.$type_info[0]['name'].'Edit');
                 $this->display('edit');
                 break;

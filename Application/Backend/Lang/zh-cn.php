@@ -14,6 +14,7 @@ return array(
     'Global_Action' => '操作',
     'Global_Edit' => '编辑',
     'Global_Detail' => '详情',
+    'Global_Error_NotFound' => '无法找到您请求的内容，请检查您是否有权限访问！',
 
     //侧栏语言
     'SideBar_Applications' => '应用',
