@@ -41,7 +41,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>{$Think.lang.Gateway_InputGatewayName}</label>
-                                                <input type="text" class="form-control" id="gtw_name" name="gtw_name" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayName}" value="<?php echo $types[$i]['name'].date('Ymds');?>">
+                                                <input type="text" class="form-control" id="gtw_name" name="gtw_name" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayName}" value="<?php echo $types[$i]['name'].date('YmdHs');?>">
                                             </div>
                                         </div>
                                         <?php $input = json_decode($types[$i]['input'],true); foreach ($input as $key=>$value) {?>
@@ -135,9 +135,7 @@
         }
     }
     function saveSubmitAction(actionType,type_id) {
-        var friend_name = $("#friend_name").val();
-        var name = $("#gtw_name").val();
-        var config_content = JSON.stringify($("#Input"+type_id).serializeArray());
+        var form_data = JSON.stringify($("#Input"+type_id).serializeArray());
         swal({
             title: "{$Think.lang.Global_Submit}",
             text: "{$Think.lang.Gateway_Submitting}",
@@ -147,7 +145,7 @@
             type: "POST",
             url: "/Gateway/actionEditSave?action="+actionType,
             dataType: "json",
-            data: {"friend_name":friend_name,"name":name,"config":config_content},
+            data: {"form_data":form_data,"type_id":type_id},
             timeout: 10000,
             beforeSend: function(){
                 swal({
@@ -160,14 +158,20 @@
                 if(json.success==1){
                     swal({
                         title: "{$Think.lang.Global_Success}",
-                        text: "{$Think.lang.Gateway_SubmitSuccess}",
+                        text: json.msg,
                         type: "success",
                         timer: 2000
                     });
                     setTimeout(window.location='/gateway/view?type={$Think.get.type}',2000);
                     return false;
-                } else {
-
+                } else if (json.error==1) {
+                    swal({
+                        title: "{$Think.lang.Global_Error}",
+                        text: json.msg,
+                        type: "error",
+                        timer:2000,
+                    });
+                    return false;
                 }
             },
             error: function () {

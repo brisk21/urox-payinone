@@ -40,7 +40,7 @@
                                             <td>{$user_gateways_info.name}</td>
                                             <td>{$user_gateways_info.friend_name}</td>
                                             <td><?php echo date('Y-m-d',strtotime($user_gateways_info['create_at'])); ?></td>
-                                            <td><?php echo date('Y-m-d',strtotime($user_gateways_info['update_at'])); ?></td>
+                                            <td><?php if ($user_gateways_info['update_at']!=null) {echo date('Y-m-d',strtotime($user_gateways_info['update_at']));} else {echo '-';} ?></td>
                                             <td>{:L('Gateway_AccessSmall'.$user_gateways_info['access'])}</td>
                                             <td>{:L('Gateway_StatusSmall'.$user_gateways_info['status'])}</td>
                                             <td>

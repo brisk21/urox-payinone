@@ -63,4 +63,7 @@ return array(
     'Gateway_Submitting' => 'We are submitting your gateway credentials, please wait...',
     'Gateway_SubmitError' => 'There is something wrong, please contact administrator.',
     'Gateway_SubmitSuccess' => 'Your gateway credentials have been saved',
+    
+    //Gateway Add
+    'GatewayAdd_GatewayNameExists' => 'The gateway name you entered is exists, please choose another one.',
 );

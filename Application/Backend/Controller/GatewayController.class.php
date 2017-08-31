@@ -61,6 +61,50 @@ class GatewayController extends InitController{
         switch ( $_GET['action'] )
         {
             case 'create':
+                $config_arr = parseJqJSON2(json_decode($_POST['form_data'],true));
+                $sub_type_id = $_POST['type_id'];
+                $GatewaysType = new GatewaysTypeModel();
+                $sub_type_info = $GatewaysType->getInfoById($sub_type_id);
+                $type_info = $GatewaysType->getInfoById($sub_type_info['parent_id']);
+                $type_name = $type_info['name'];
+                $sub_type_name = $sub_type_info['name'];
+                $name = $config_arr['gtw_name'];
+                if (count(M('gateways')->where(array("name"=>$name))->select())!=0) {
+                    echo json_encode(array(
+                        "error" => true,
+                        "msg" => L('GatewayAdd_GatewayNameExists'),
+                    ));exit;
+                }
+                $friend_name = $config_arr['gtw_friend_name'];
+                $support_phone = $config_arr['gtw_SupportPhone'] == 'on' ? "ON" : "OFF";
+                $require_phone = $config_arr['gtw_RequirePhone'] == 'on' ? "ON" : "OFF";
+                $status = $config_arr['gtw_status'];
+                $access = $config_arr['gtw_access'];
+                unset($config_arr['gtw_name']);
+                unset($config_arr['gtw_friend_name']);
+                unset($config_arr['gtw_SupportPhone']);
+                unset($config_arr['gtw_RequirePhone']);
+                unset($config_arr['gtw_status']);
+                unset($config_arr['gtw_access']);
+                $config = $config_arr;
+                $con = array(
+                    "name" => $name,
+                    "type" => $type_name,
+                    "subtype" => $sub_type_name,
+                    "config" => json_encode($config),
+                    "uid" => session('uid'),
+                    "create_at" => getDateTime(),
+                    "status" => $status,
+                    "phone_support" => $support_phone,
+                    "phone_required" => $require_phone,
+                    "access" => $access,
+                    "friend_name" => $friend_name
+                );
+                $id = M('gateways')->data($con)->add();
+                echo json_encode(array(
+                    "success" => true,
+                    "msg" => L('Gateway_SubmitSuccess')
+                ));exit;
                 break;
             case 'edit':
                 break;

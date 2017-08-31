@@ -63,4 +63,7 @@ return array(
     'Gateway_Submitting' => '我们正在提交您的网关凭据，请等待...',
     'Gateway_SubmitError' => '发生了错误，请尝试联系管理员',
     'Gateway_SubmitSuccess' => '您的网关信息已经成功保存',
+
+    //Gateway Add
+    'GatewayAdd_GatewayNameExists' => '您输入的接口名称已经存在，请使用另一个',
 );
