@@ -35,13 +35,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>{$Think.lang.Gateway_InputGatewayNickName}</label>
-                                                <input type="email" class="form-control" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayNickName}">
+                                                <input type="text" class="form-control" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayNickName}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>{$Think.lang.Gateway_InputGatewayName}</label>
-                                                <input type="email" class="form-control" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayName}" value="<?php echo $types[$i]['name'].date('Ymds');?>">
+                                                <input type="text" class="form-control" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.Gateway_InputGatewayName}" value="<?php echo $types[$i]['name'].date('Ymds');?>">
                                             </div>
                                         </div>
                                         <?php $input = json_decode($types[$i]['input'],true); foreach ($input as $key=>$value) {?>
