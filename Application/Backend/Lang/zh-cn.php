@@ -78,4 +78,5 @@ return array(
     'AppCreate_AppStatusACTIVE' => '已激活（上线）',
     'AppCreate_AppStatusINACTIVE' => '未激活（开发中）',
     'AppCreate_SelectGateways' => '选择网关',
+    'AppCreate_SubmitSuccess' => '您的应用信息已经成功保存',
 );

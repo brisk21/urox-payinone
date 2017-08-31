@@ -1,5 +1,8 @@
 <?php
 namespace Backend\Controller;
+use Backend\Model\AppGatewayModel;
+use Backend\Model\AppsModel;
+
 class AppController extends InitController{
     public function _initialize()
     {
@@ -20,13 +23,29 @@ class AppController extends InitController{
         $this->display();
     }
 
-    public function create()
+    public function edit()
     {
-        $this->assign('user_gateways_info',M('gateways')->where(array("uid"=>session('uid')))->select());
-        $this->assign('public_gateways_info',M('gateways')->where(array("access"=>"PUBLIC"))->where("`uid` !=".session('uid'))->select());
-        $this->assign('SideBar_Selected','SideBar_CreateApp');
-        $this->meta_title = L('SideBar_CreateApp');
-        $this->display();
+        switch (I('get.action'))
+        {
+            case 'create':
+                $this->assign('user_gateways_info',M('gateways')->where(array("uid"=>session('uid')))->select());
+                $this->assign('public_gateways_info',M('gateways')->where(array("access"=>"PUBLIC"))->where("`uid` !=".session('uid'))->select());
+                $this->assign('SideBar_Selected','SideBar_CreateApp');
+                $this->meta_title = L('SideBar_CreateApp');
+                $this->display('create');
+                break;
+            default:
+                $appid = I('get.id');
+                $Apps = new AppsModel();
+                $app_info = $Apps->getAppsInfoByAppId($appid);
+                if (!$app_info) {
+                    $this->error(L('Global_Error_NotFound'),'/app/view');exit;
+                } else {
+                    $this->display('app_info',$app_info);
+                }
+                $this->display();
+                break;
+        }
     }
 
     public function data()
@@ -43,4 +62,43 @@ class AppController extends InitController{
         $this->display();
     }
 
+    public function actionCreateSave()
+    {
+        $app_gateways_id = array();
+        $form_data_origin = json_decode($_POST['form_data'],true);
+        $AppGateway = new AppGatewayModel();
+        $form_data = parseJqJSON2($form_data_origin);
+        $appname = $form_data['app_appname'];
+        $appid = $form_data['app_appid'];
+        if (M('apps')->where(array("appid"=>$appid))->select()) {
+            echo json_encode(array(
+                "error" => true,
+                "msg" => L('Global_Error'),
+            ));
+        }
+        $description = $form_data['app_description'];
+        $status = $form_data['app_status'];
+        $con = array(
+            "appname" => $appname,
+            "description" => $description,
+            "status" => $status,
+            "appid" => $appid,
+            "appkey" => GetRandString(32,'WORDx'),
+            "create_at" => getDateTime(),
+            "uid" => session('uid'),
+            "access" => "PRIVATE",
+            "v_status" => "ACTIVE",
+        );
+        $id = M('apps')->data($con)->add();
+        foreach ($form_data_origin as $key=>$value)
+        {
+            if ($value['name'] == "app_gateways") {
+                $AppGateway->createLink($appid,$value['value']);
+            }
+        }
+        echo json_encode(array(
+            "success" => true,
+            "msg" => L('AppCreate_SubmitSuccess')
+        ));
+    }
 }

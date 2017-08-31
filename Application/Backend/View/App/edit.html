@@ -25,7 +25,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>{$Think.lang.AppCreate_AppName}</label>
-                                            <input class="form-control" name="app_appname" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.AppCreate_AppName}" ="required">
+                                            <input class="form-control" name="app_appname" placeholder="{$Think.lang.Global_PleaseEnter} {$Think.lang.AppCreate_AppName}" required="required">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="line line-dashed b-b line-lg pull-in"></div>
                                     <div class="col-lg-12">
-                                        <button type="submit" name="saveSubmit" onclick="saveAppSubmit();" class="btn btn-primary"><i class="fa fa-check"></i> {$Think.lang.Global_Submit}</button>
+                                        <button type="submit" name="saveSubmit" onclick="saveAppSubmit('create');" class="btn btn-primary"><i class="fa fa-check"></i> {$Think.lang.Global_Submit}</button>
                                     </div>
                                 </form>
                             </div>
@@ -87,12 +87,11 @@
 <block name="custom_js">
     <script type="text/javascript">
         function saveAppSubmit() {
-            var form_data = JSON.stringify($("#appCreateForm").serializeArray());
             $.ajax({
                 type: "POST",
-                url: "/App/actionCreateSave",
+                url: "/App/actionCreateSave?action="+actionType,
                 dataType: "json",
-                data: {"form_data":form_data},
+                data: {"form_data":form_data,"type_id":type_id},
                 timeout: 10000,
                 beforeSend: function(){
                     swal({
@@ -109,14 +108,14 @@
                             type: "success",
                             timer: 2000
                         });
-                        setTimeout(window.location='/app/view',2000);
+                        setTimeout(window.location='/gateway/view?type={$Think.get.type}',2000);
                         return false;
                     } else if (json.error==1) {
                         swal({
-                            title: "{$Think.lang.Global_ErrorSmall}",
+                            title: "{$Think.lang.Global_Error}",
                             text: json.msg,
                             type: "error",
-                            timer:2000
+                            timer:2000,
                         });
                         return false;
                     }

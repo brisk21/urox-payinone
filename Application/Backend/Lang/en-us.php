@@ -78,4 +78,5 @@ return array(
     'AppCreate_AppStatusACTIVE' => 'Active(Online)',
     'AppCreate_AppStatusINACTIVE' => 'Inactive(Developing)',
     'AppCreate_SelectGateways' => 'Select the payment gateways for this app',
+    'AppCreate_SubmitSuccess' => 'Your app configurations have been saved',
 );

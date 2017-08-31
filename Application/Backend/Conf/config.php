@@ -6,7 +6,8 @@ return array(
         'auth/logout' => 'Auth/logout',
 
         'app/view' => 'App/view',
-        'app/create' => 'App/create',
+        'app/create' => 'App/edit?action=create',
+        'app/edit' => 'App/edit',
         'app/order' => 'App/order',
         'app/data' => 'App/data',
 
