@@ -3,6 +3,7 @@ class GWHandler {
     public function __construct()
     {
         $this::loadLibClasses($this::scanLibClasses());
+        $this::loadPlugins();
     }
 
     public function scanLibClasses()
@@ -32,8 +33,32 @@ class GWHandler {
         return true;
     }
 
-    public function scanGatewayPlugins()
+    public function scanPlugins()
     {
+        $plugins_dir_files = scandir(GW_PLUG_DIR);
+        $plugins_info = array();
+        foreach ($plugins_dir_files as $key => $value)
+        {
+            if ( preg_match('/(.*?)\.php/is',$value,$result) )
+            {
+                array_push($plugins_info,array("name"=>$result[1],"filename"=>$value));
+            }
+        }
+        return $plugins_info;
+    }
 
+    public function loadPlugins()
+    {
+        $plugins_info = self::scanPlugins();
+        foreach ($plugins_info as $key => $value)
+        {
+            require GW_PLUG_DIR.'/'.$value['filename'];
+        }
+        return true;
+    }
+
+    public function pluginAction($plugin_name,$action_name)
+    {
+        return call_user_func($plugin_name.'_'.$action_name);
     }
 }

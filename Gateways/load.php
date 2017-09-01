@@ -10,15 +10,9 @@
  */
 
 define('GW_PATH',__DIR__);
-
-require (__DIR__ . '/lib/class.GWHandler.php');
+define('GW_LIB_DIR',GW_PATH.'/lib');
+define('GW_PLUG_DIR',GW_PATH.'/plugins');
+require (GW_LIB_DIR . '/class.GWHandler.php');
 
 $Handler = new GWHandler();
-
-//引入支付宝Aop
-require(__DIR__ . '/Alipay/AopSdk.php');
-
-//引入微信支付
-require(__DIR__ . '/WxPayPubHelper/WxPayPubHelper.php');
-require(__DIR__ . '/WxPay/WxPay.Api.php');
-require(__DIR__ . '/WxPay/WxPay.Notify.php');
+$Handler->loadPlugins();
