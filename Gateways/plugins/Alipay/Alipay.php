@@ -10,7 +10,7 @@
 //初始化方法，加载插件时会调用此方法，可进行引入SDK等操作
 function Alipay_init()
 {
-    require __DIR__ . '/Alipay/AopSdk.php';
+    require __DIR__ . '/AopSdk/AopSdk.php';
 }
 
 //插件信息方法，具体配置方法详见文档

@@ -39,9 +39,8 @@ class GWHandler {
         $plugins_info = array();
         foreach ($plugins_dir_files as $key => $value)
         {
-            if ( preg_match('/(.*?)\.php/is',$value,$result) )
-            {
-                array_push($plugins_info,array("name"=>$result[1],"filename"=>$value));
+            if ( file_exists(GW_PLUG_DIR . '/' . $value . '/' . $value . '.php') ){
+                array_push($plugins_info,array("name"=>$value,"filename"=>$value.'.php'));
             }
         }
         return $plugins_info;
@@ -52,7 +51,7 @@ class GWHandler {
         $plugins_info = self::scanPlugins();
         foreach ($plugins_info as $key => $value)
         {
-            require GW_PLUG_DIR.'/'.$value['filename'];
+            require GW_PLUG_DIR.'/'.$value['name'].'/'.$value['filename'];
         }
         return true;
     }

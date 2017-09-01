@@ -15,4 +15,3 @@ define('GW_PLUG_DIR',GW_PATH.'/plugins');
 require (GW_LIB_DIR . '/class.GWHandler.php');
 
 $Handler = new GWHandler();
-$Handler->loadPlugins();
