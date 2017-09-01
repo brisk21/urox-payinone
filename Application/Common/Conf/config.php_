@@ -9,6 +9,7 @@
  * @author Victor@NorthmeLLC <victor.chen@northme.com>
  */
 return array(
+    'DEFAULT_MODULE '         => 'Backend',
     'AUTOLOAD_NAMESPACE'      => array(
         'Lib'                 => APP_PATH.'Lib',
     ),
