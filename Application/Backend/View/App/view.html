@@ -79,7 +79,7 @@
                                         <td>{$public_apps_infoa.appname}</td>
                                         <td><?php echo date('Y-m-d',strtotime($public_apps_infoa['create_at'])); ?></td>
                                         <td><?php if ($public_apps_infoa['update_at']!=null) {echo date('Y-m-d',strtotime($public_apps_infoa['update_at']));} else {echo '-';} ?></td>
-                                        <td>{:L('AppCreate_AppAccessSmall'.$public_apps_infoa['access'])}</td>
+                                        <td>{$Think.lang.AppCreate_AppAccessSmallPublic}</td>
                                         <td>{:L('AppCreate_AppStatusSmall'.$public_apps_infoa['status'])}</td>
                                         <td>
                                             <button class="btn btn-info btn-xs"><i class="fa fa-info"></i> {$Think.lang.Global_Detail}</button>
@@ -92,7 +92,7 @@
                                         <td>{$public_apps_infob.appname}</td>
                                         <td><?php echo date('Y-m-d',strtotime($public_apps_infob['create_at'])); ?></td>
                                         <td><?php if ($public_apps_infob['update_at']!=null) {echo date('Y-m-d',strtotime($public_apps_infob['update_at']));} else {echo '-';} ?></td>
-                                        <td>{:L('AppCreate_AppAccessSmall'.$public_apps_infob['access'])}</td>
+                                        <td>{$Think.lang.AppCreate_AppAccessSmallPublic}</td>
                                         <td>{:L('AppCreate_AppStatusSmall'.$public_apps_infob['status'])}</td>
                                         <td>
                                             <a href="/app/edit?appid={$public_apps_infob.appid}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> {$Think.lang.Global_Edit}</button></a>

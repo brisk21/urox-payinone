@@ -157,4 +157,10 @@ class AppController extends InitController{
             "msg" => L('AppCreate_SubmitSuccess')
         ));
     }
+
+    public function actionGetAppDetail()
+    {
+        $appid = I('post.appid');
+
+    }
 }
