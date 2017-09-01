@@ -10,7 +10,7 @@
 //初始化方法，加载插件时会调用此方法，可进行引入SDK等操作
 function WxPay_init()
 {
-    require __DIR__ . '/WxPayPubHelper/WxPayPubHelper.php';
+    require __DIR__ . '/WxPaySdk/WxPayPubHelper/WxPayPubHelper.php';
 }
 
 //插件信息方法，具体配置方法详见文档
