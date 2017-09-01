@@ -5,5 +5,6 @@
   #RewriteCond %{REQUEST_FILENAME} !-d
   #RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_URI} !^/(assets|assets/.*)$
+  RewriteCond %{REQUEST_URI} !^/(Gateways|Gateways/.*)$
   RewriteRule ^(.*)$ index.php?s=$1 [QSA,PT,L]
 </IfModule>

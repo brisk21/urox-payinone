@@ -9,6 +9,12 @@
  * @author Martian@NorthmeLLC <martian@northme.com>
  */
 
+define('GW_PATH',__DIR__);
+
+require (__DIR__ . '/lib/class.GWHandler.php');
+
+$Handler = new GWHandler();
+
 //引入支付宝Aop
 require(__DIR__ . '/Alipay/AopSdk.php');
 
